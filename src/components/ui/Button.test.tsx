@@ -36,11 +36,11 @@ describe("Button", () => {
       "px-6",
       "py-3",
       "min-h-[44px]",
-      "rounded-lg",
+      "rounded-xl",
       "hover:bg-accent-dark/90",
-      "hover:shadow-md",
-      "transition-all",
+      "transition-colors",
       "duration-200",
+      "ease-out",
     );
   });
 
@@ -68,10 +68,10 @@ describe("Button", () => {
     expect(el).toHaveClass(
       "bg-accent-dark",
       "text-white",
-      "px-4",
-      "py-2",
+      "px-5",
+      "py-2.5",
       "min-h-[44px]",
-      "rounded-md",
+      "rounded-xl",
       "text-sm",
     );
   });

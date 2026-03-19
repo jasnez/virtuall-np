@@ -28,7 +28,7 @@ describe("SectionWrapper", () => {
     render(<SectionWrapper>Y</SectionWrapper>);
     expect(screen.getByTestId("section-wrapper")).toHaveClass(
       "py-20",
-      "lg:py-[120px]",
+      "lg:py-24",
     );
   });
 

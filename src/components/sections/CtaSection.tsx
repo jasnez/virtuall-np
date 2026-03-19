@@ -21,16 +21,16 @@ export function CtaSection({
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="navy" padding="lg">
         <AnimateIn className="text-center text-white" disableAnimation={disableAnimation}>
-          <h2 className="text-3xl font-semibold tracking-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl font-semibold tracking-tight leading-[1.18] max-w-3xl mx-auto text-balance">
             {title}
           </h2>
-          <p className="text-white/85 mt-6 max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/90 mt-6 max-w-xl mx-auto leading-[1.62]">
             {description}
           </p>
           <div className="mt-12">
             <Button
               href={ctaHref}
-              className="font-semibold px-8 py-3.5 text-base min-h-[48px]"
+              className="font-semibold px-8 py-4 text-base min-h-12 rounded-xl"
             >
               {ctaLabel}
             </Button>

@@ -16,7 +16,7 @@ export function Footer() {
   const telHref = `tel:${phone.replace(/\s+/g, "")}`;
 
   const linkClass =
-    "text-white/70 hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded";
+    "text-white/70 hover:text-white transition-colors duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded-lg";
 
   return (
     <footer data-testid="site-footer" className="bg-primary text-white">
@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-16 sm:py-20">
           <div>
             <div className="text-xl font-bold tracking-tight">{siteConfig.siteName}</div>
-            <p className="mt-4 text-white/75 leading-relaxed max-w-sm">
+            <p className="mt-4 text-white/80 leading-[1.62] max-w-sm">
               High-signal content and research that turns complex ideas into clear
               decisions. Built for brands that care about clarity and credibility.
             </p>
@@ -34,7 +34,7 @@ export function Footer() {
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider">
               Quick Links
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-3">
               {quickLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={`${linkClass} inline-block py-0.5`}>
@@ -49,7 +49,7 @@ export function Footer() {
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider">
               Contact
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-3">
               <li>
                 <a className={`${linkClass} inline-block py-0.5`} href={`mailto:${email}`}>
                   {email}
@@ -67,7 +67,7 @@ export function Footer() {
 
         <hr className="border-white/15" />
 
-        <div className="text-center text-white/50 text-sm py-6 sm:py-8">
+        <div className="text-center text-white/60 text-sm py-6 sm:py-8">
           <span>© 2026 VirtuALL NP. All rights reserved.</span>{" "}
           <Link href="/privacy-policy" className={`${linkClass} inline-block mt-px`}>
             Privacy Policy

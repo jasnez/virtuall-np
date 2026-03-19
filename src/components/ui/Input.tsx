@@ -10,7 +10,7 @@ function cx(...parts: Array<string | false | null | undefined>) {
 }
 
 const baseField =
-  "w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors";
+  "w-full px-4 py-3 border border-gray-200/90 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors duration-200 ease-out";
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(function Input(
   { label, error, className, id, name, required, type = "text", ...props },
@@ -24,7 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(function Input(
       {label ? (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-text-main mb-1"
+          className="block text-sm font-medium text-text-main mb-2"
         >
           {label}
         </label>

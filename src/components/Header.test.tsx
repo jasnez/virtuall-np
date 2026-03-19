@@ -105,18 +105,18 @@ describe("Header", () => {
     );
   });
 
-  it("adds shadow-sm when scrolled more than 20px", () => {
+  it("strengthens header border and background when scrolled past threshold", () => {
     render(<Header />);
     const header = screen.getByTestId("site-header");
 
     expect(header).toHaveClass("bg-white/95");
+    expect(header).toHaveClass("border-gray-200/50");
     expect(header).not.toHaveClass("bg-white");
-    expect(header).not.toHaveClass("shadow-sm");
 
     Object.defineProperty(window, "scrollY", { value: 30, writable: true });
     fireEvent.scroll(window);
 
-    expect(header).toHaveClass("shadow-sm");
+    expect(header).toHaveClass("border-gray-200/90");
     expect(header).toHaveClass("bg-white");
     expect(header).not.toHaveClass("bg-white/95");
   });

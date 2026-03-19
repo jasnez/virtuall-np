@@ -76,9 +76,9 @@ describe("Home page", () => {
 
       // hero text width constraint
       const hero = screen.getByTestId("hero");
-      const heroTextWrap = hero.querySelector(".max-w-3xl");
+      const heroTextWrap = hero.querySelector(".max-w-2xl");
       expect(heroTextWrap).not.toBeNull();
-      expect(heroTextWrap).toHaveClass("max-w-3xl");
+      expect(heroTextWrap).toHaveClass("max-w-2xl");
 
       // value props should stack on mobile
       const valueGrid = screen.getByTestId("value-props-grid");
@@ -93,10 +93,10 @@ describe("Home page", () => {
       // CTA color sanity checks (avoid white text on light backgrounds).
       expect(cta1).toHaveClass("text-[#0F2440]");
       expect(cta1).not.toHaveClass("text-white");
-      expect(cta1).toHaveClass("hover:bg-white/90");
+      expect(cta1).toHaveClass("hover:bg-white/95");
 
       expect(cta2).toHaveClass("text-white");
-      expect(cta2).toHaveClass("hover:text-[#0F2440]");
+      expect(cta2).toHaveClass("hover:text-white");
 
       const ctaSectionButton = screen.getByRole("link", {
         name: homepage.cta.ctaText,

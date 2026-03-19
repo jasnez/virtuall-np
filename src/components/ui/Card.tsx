@@ -29,9 +29,10 @@ export function Card({
     <div
       data-testid="card"
       className={cx(
-        "bg-white rounded-xl shadow-sm border border-gray-100",
+        "bg-white rounded-xl border border-gray-200/80",
         paddingMap[padding],
-        hover && "hover:shadow-md hover:-translate-y-1 transition-all duration-300",
+        hover &&
+          "hover:border-gray-300/80 hover:bg-gray-50/50 transition-colors duration-200 ease-out",
         className,
       )}
     >

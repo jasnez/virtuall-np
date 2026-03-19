@@ -43,29 +43,29 @@ export function Hero({ disableAnimation = false }: HeroProps) {
           </svg>
         </div>
 
-        <div className="relative px-5 sm:px-6 py-20 sm:py-24 lg:py-28 w-full">
+        <div className="relative px-4 sm:px-6 py-20 md:py-24 w-full">
           <div className="mx-auto max-w-2xl text-center text-white">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] sm:leading-[1.1] tracking-tight text-balance">
               {homepage.hero.headline}
             </h1>
 
             <AnimateIn delay={0.2} disableAnimation={disableAnimation}>
-              <p className="text-lg md:text-xl text-white/90 mt-8 max-w-xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-white/[0.92] mt-8 max-w-xl mx-auto leading-[1.62]">
                 {homepage.hero.subheadline}
               </p>
             </AnimateIn>
 
             <AnimateIn delay={0.4} disableAnimation={disableAnimation}>
-              <div className="flex flex-wrap gap-5 justify-center mt-14">
+              <div className="flex flex-wrap gap-4 sm:gap-6 justify-center mt-12">
                 <Button
                   href="/services"
-                  className="bg-white text-[#0F2440] hover:bg-white/95 rounded-lg font-semibold"
+                  className="bg-white text-[#0F2440] hover:bg-white/95 font-semibold"
                 >
                   See Our Services
                 </Button>
                 <Button
                   href="/contact"
-                  className="bg-transparent border-2 border-white/90 text-white hover:bg-white/10 hover:text-white hover:border-white rounded-lg font-medium"
+                  className="rounded-xl border-2 border-white/90 bg-transparent text-white hover:bg-white/10 hover:text-white hover:border-white font-medium"
                 >
                   Get a Quote
                 </Button>

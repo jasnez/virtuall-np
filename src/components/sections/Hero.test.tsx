@@ -57,19 +57,20 @@ describe("Hero", () => {
     });
     expect(h1).toHaveClass(
       "text-4xl",
-      "md:text-5xl",
+      "sm:text-5xl",
       "lg:text-6xl",
       "font-bold",
-      "leading-tight",
+      "leading-[1.08]",
+      "text-balance",
     );
 
     const sub = screen.getByText(homepage.hero.subheadline);
     expect(sub).toHaveClass(
       "text-lg",
       "md:text-xl",
-      "text-white/80",
-      "mt-6",
-      "max-w-2xl",
+      "text-white/[0.92]",
+      "mt-8",
+      "max-w-xl",
       "mx-auto",
     );
   });

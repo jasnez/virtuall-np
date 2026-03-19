@@ -15,8 +15,9 @@ describe("globals.css base styles", () => {
       /html\s*\{[\s\S]*scroll-behavior:\s*smooth\s*;[\s\S]*\}/i,
     );
     expect(css).toMatch(
-      /body\s*\{[\s\S]*font-family:\s*inherit[\s\S]*color:\s*#1A1A2E[\s\S]*line-height:\s*1\.7[\s\S]*\}/i,
+      /body\s*\{[\s\S]*font-family:\s*inherit[\s\S]*color:\s*var\(--text-main\)[\s\S]*line-height:\s*1\.62[\s\S]*\}/i,
     );
+    expect(css).toMatch(/--text-light:\s*#5b6472/i);
   });
 });
 

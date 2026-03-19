@@ -67,10 +67,10 @@ export function Header() {
       <header
         data-testid="site-header"
         className={cx(
-          "sticky top-0 z-50 h-[76px] backdrop-blur-md transition-all duration-200 border-b",
+          "sticky top-0 z-50 h-20 backdrop-blur-md transition-colors duration-200 ease-out border-b",
           isScrolled
-            ? "bg-white border-gray-100 shadow-[0_1px_3px_rgba(27,58,92,0.06)]"
-            : "bg-white/98 border-primary/[0.08]",
+            ? "bg-white border-gray-200/90"
+            : "bg-white/95 border-gray-200/50",
         )}
       >
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
@@ -82,7 +82,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center flex-1 justify-end min-w-0">
-            <div className="flex items-center gap-7">
+            <div className="flex items-center gap-6">
               {navItems.map((item) => {
                 const active = isActive(pathname, item.href);
                 return (
@@ -128,7 +128,7 @@ export function Header() {
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
           >
             <motion.div
-              className="flex items-center justify-between h-[76px] px-4 sm:px-6 border-b border-white/10 shrink-0"
+              className="flex items-center justify-between h-20 px-4 sm:px-6 border-b border-white/10 shrink-0"
               initial={{ y: -8 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
@@ -172,7 +172,7 @@ export function Header() {
                 <Button
                   variant="nav"
                   href="/contact"
-                  className="w-full justify-center bg-white text-primary hover:bg-white/95 py-3.5 text-base font-semibold"
+                  className="w-full justify-center bg-white text-primary hover:bg-white/95 py-3 text-base font-semibold"
                   onClick={() => setMobileOpen(false)}
                 >
                   Get a Quote

@@ -10,7 +10,7 @@ function cx(...parts: Array<string | false | null | undefined>) {
 }
 
 const baseField =
-  "w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors";
+  "w-full px-4 py-3 border border-gray-200/90 rounded-xl focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors duration-200 ease-out";
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
   function Textarea(
@@ -25,7 +25,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
         {label ? (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-text-main mb-1"
+            className="block text-sm font-medium text-text-main mb-2"
           >
             {label}
           </label>
@@ -40,7 +40,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
           aria-describedby={errorId}
           className={cx(
             baseField,
-            "min-h-[120px] resize-y",
+            "min-h-24 resize-y",
             error && "border-error",
             className,
           )}

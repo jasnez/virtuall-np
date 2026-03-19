@@ -15,27 +15,27 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
       <SectionWrapper bgColor="white" padding="lg">
         <div
           data-testid="trust-grid"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-14 lg:gap-16 items-start"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-text-main tracking-tight">
+            <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance">
               Why Work With Us
             </h2>
-            <div className="space-y-4 text-text-light leading-relaxed">
+            <div className="space-y-4 text-text-light leading-[1.62]">
               {homepage.trust.narrative.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
             <div
               data-testid="guarantee-badge"
-              className="inline-flex items-center gap-3 rounded-full bg-accent/10 px-5 py-3"
+              className="inline-flex items-center gap-3 rounded-full border border-accent/15 bg-accent/10 px-5 py-3"
             >
               <CheckCircle2
                 className="w-5 h-5 text-accent shrink-0"
                 aria-hidden="true"
                 focusable="false"
               />
-              <strong className="text-sm text-text-main leading-snug">
+              <strong className="text-sm text-text-main leading-[1.45]">
                 Thoughtful process, source-backed work, and clear expectations on
                 every project.
               </strong>
@@ -65,7 +65,7 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
                       <h3 className="text-lg font-semibold text-text-main tracking-tight">
                         {step.title}
                       </h3>
-                      <p className="mt-2 text-sm text-text-light leading-relaxed">
+                      <p className="mt-2 text-sm text-text-light leading-[1.62]">
                         {step.description}
                       </p>
                     </div>

@@ -44,12 +44,12 @@ import homepage from "@/content/homepage.json";
 import { ValueProps } from "./ValueProps";
 
 describe("ValueProps", () => {
-  it("renders a SectionWrapper with white background and md padding", () => {
+  it("renders a SectionWrapper with white background and default (lg) padding", () => {
     render(<ValueProps />);
 
     const section = screen.getByTestId("section-wrapper");
     expect(section).toHaveStyle({ backgroundColor: "#FFF" });
-    expect(section).toHaveClass("py-16");
+    expect(section).toHaveClass("py-20", "lg:py-24");
   });
 
   it("renders value props in a responsive 2x2 then 4-column grid", () => {

@@ -19,9 +19,8 @@ describe("Card", () => {
     expect(el).toHaveClass(
       "bg-white",
       "rounded-xl",
-      "shadow-sm",
       "border",
-      "border-gray-100",
+      "border-gray-200/80",
     );
   });
 
@@ -29,20 +28,21 @@ describe("Card", () => {
     render(<Card>Hover</Card>);
     const el = screen.getByTestId("card");
     expect(el).toHaveClass(
-      "hover:shadow-md",
-      "hover:-translate-y-1",
-      "transition-all",
-      "duration-300",
+      "hover:border-gray-300/80",
+      "hover:bg-gray-50/50",
+      "transition-colors",
+      "duration-200",
+      "ease-out",
     );
   });
 
   it("can disable hover effects", () => {
     render(<Card hover={false}>NoHover</Card>);
     const el = screen.getByTestId("card");
-    expect(el).not.toHaveClass("hover:shadow-md");
-    expect(el).not.toHaveClass("hover:-translate-y-1");
-    expect(el).not.toHaveClass("transition-all");
-    expect(el).not.toHaveClass("duration-300");
+    expect(el).not.toHaveClass("hover:border-gray-300/80");
+    expect(el).not.toHaveClass("hover:bg-gray-50/50");
+    expect(el).not.toHaveClass("transition-colors");
+    expect(el).not.toHaveClass("duration-200");
   });
 
   it("applies padding variants", () => {

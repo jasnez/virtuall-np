@@ -37,7 +37,8 @@ function sizeClasses(size: ButtonSize, variant: ButtonVariant) {
 const focusRing =
   "focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:outline-none";
 
-const hoverScale = "hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200";
+const transitionUi =
+  "transition-colors duration-200 ease-out";
 
 export function Button({
   variant = "primary",
@@ -63,7 +64,7 @@ export function Button({
   function variantClassesWithOverrides(v: ButtonVariant) {
     switch (v) {
       case "secondary": {
-        const parts = ["border-2", "border-accent"];
+        const parts = ["rounded-xl", "border-2", "border-accent", transitionUi];
         if (!overrides.hasText) parts.push("text-accent");
         if (!overrides.hasHoverBg) parts.push("hover:bg-accent");
         if (!overrides.hasText && !overrides.hasHoverText) parts.push("hover:text-white");
@@ -73,6 +74,7 @@ export function Button({
         return [
           overrides.hasText ? null : "text-accent",
           "underline",
+          transitionUi,
           overrides.hasHoverText || overrides.hasText ? null : "hover:text-accent-dark",
         ]
           .filter(Boolean)
@@ -83,10 +85,10 @@ export function Button({
           overrides.hasText ? null : "text-white",
           "px-5",
           "py-2.5",
-          "rounded-lg",
+          "rounded-xl",
           "text-sm font-semibold",
           "hover:bg-accent-dark/90",
-          "transition-colors duration-200",
+          transitionUi,
         ]
           .filter(Boolean)
           .join(" ");
@@ -95,10 +97,9 @@ export function Button({
         const parts = [];
         if (!overrides.hasBg) parts.push("bg-accent-dark");
         if (!overrides.hasText) parts.push("text-white");
-        parts.push("px-6", "py-3", "rounded-lg");
+        parts.push("px-6", "py-3", "rounded-xl");
         if (!overrides.hasHoverBg) parts.push("hover:bg-accent-dark/90");
-        // Shadow is safe even if hover bg is overridden.
-        parts.push("hover:shadow-md", "transition-all", "duration-200");
+        parts.push(transitionUi);
         return parts.join(" ");
       }
     }
@@ -107,7 +108,6 @@ export function Button({
   const classes = cx(
     "inline-flex items-center justify-center min-h-[44px] min-w-[44px]",
     focusRing,
-    variant !== "nav" && hoverScale,
     variantClassesWithOverrides(variant),
     sizeClasses(size, variant),
     disabledClasses,

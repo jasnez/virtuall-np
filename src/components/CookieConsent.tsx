@@ -82,8 +82,8 @@ export function CookieConsent() {
       <div
         className={[
           "mx-auto max-w-7xl",
-          "bg-white shadow-lg border-t border-gray-200 p-4",
-          "transition-transform duration-300 ease-out",
+          "bg-white border-t border-gray-200/90 p-4",
+          "transition-transform duration-200 ease-out",
           slideIn ? "translate-y-0" : "translate-y-full",
         ].join(" ")}
         role="dialog"

@@ -12,7 +12,7 @@ describe("tailwind.config.ts theme", () => {
       "accent-dark": "#236B6B",
       "bg-alt": "#F5F5F0",
       "text-main": "#1A1A2E",
-      "text-light": "#6B7280",
+      "text-light": "#5B6472",
       success: "#10B981",
       error: "#EF4444",
     });

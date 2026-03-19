@@ -41,21 +41,21 @@ describe("CtaSection", () => {
         level: 2,
         name: "Ready to get started?",
       }),
-    ).toHaveClass("text-3xl", "font-bold");
+    ).toHaveClass("text-3xl", "font-semibold");
 
     const desc = screen.getByText(
       "Tell us what you're building and we'll follow up with next steps.",
     );
     expect(desc).toHaveClass(
-      "text-white/80",
-      "mt-4",
+      "text-white/90",
+      "mt-6",
       "max-w-xl",
       "mx-auto",
     );
 
     const button = screen.getByRole("link", { name: "Start a Project" });
     expect(button).toHaveAttribute("href", "/contact");
-    expect(button).toHaveClass("mt-8");
+    expect(button).toHaveClass("rounded-xl");
   });
 
   it("supports overriding CTA label and href", () => {

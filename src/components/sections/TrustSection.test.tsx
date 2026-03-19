@@ -66,7 +66,7 @@ describe("TrustSection", () => {
       "grid-cols-1",
       "lg:grid-cols-2",
       "gap-12",
-      "items-center",
+      "items-start",
     );
   });
 

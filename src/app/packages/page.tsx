@@ -48,12 +48,12 @@ export default function PackagesPage() {
     <main className="min-h-screen">
       <StructuredData page="packages" />
       <AnimateIn delay={0}>
-        <section className="py-24 md:py-32 bg-gradient-to-br from-primary to-[#0F2440] text-white">
+        <section className="py-20 md:py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
               Packages &amp; Pricing
             </h1>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-white/90 max-w-2xl mx-auto leading-[1.62]">
               Choose the level of depth that fits your project—from fast,
               focused deliverables to fully researched, strategy-backed content.
             </p>
@@ -81,12 +81,12 @@ export default function PackagesPage() {
                 <div data-testid="pricing-card" className="h-full">
                 <div
                   data-testid={`pricing-card-${pkg.id}`}
-                  className={`p-8 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col h-full ${
-                    isFeatured ? "relative ring-2 ring-accent" : ""
+                  className={`p-8 rounded-2xl bg-white border border-gray-200/80 hover:border-gray-300/80 transition-colors duration-200 ease-out flex flex-col h-full ${
+                    isFeatured ? "relative ring-2 ring-accent ring-offset-2 ring-offset-white" : ""
                   }`}
                 >
                   {isFeatured && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-dark text-white text-sm px-4 py-1 rounded-full shadow-sm">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-dark text-white text-sm px-4 py-1 rounded-full border border-white/20">
                       Most Popular
                     </div>
                   )}
@@ -160,7 +160,7 @@ export default function PackagesPage() {
               <AnimateIn key={addon.id} delay={index * 0.1}>
                 <div
                   data-testid="addon-card"
-                  className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col"
+                  className="p-6 rounded-xl bg-white border border-gray-200/80 hover:border-gray-300/80 transition-colors duration-200 ease-out h-full flex flex-col"
                 >
                   <h3 className="text-lg font-semibold text-text-main">
                     {addon.name}
