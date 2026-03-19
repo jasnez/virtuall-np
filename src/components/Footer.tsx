@@ -20,7 +20,10 @@ export function Footer() {
     "text-white/75 hover:text-white transition-colors duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded-lg";
 
   return (
-    <footer data-testid="site-footer" className="bg-primary text-white">
+    <footer
+      data-testid="site-footer"
+      className="bg-gradient-to-br from-primary to-[#0F2440] text-white"
+    >
       <div className={`${PAGE_CONTAINER_X} pt-16 pb-8`}>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
           <div>

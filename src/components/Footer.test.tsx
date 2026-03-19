@@ -27,7 +27,12 @@ describe("Footer", () => {
     expect(screen.getByRole("heading", { name: "Contact" })).toBeInTheDocument();
 
     const footer = screen.getByTestId("site-footer");
-    expect(footer).toHaveClass("bg-primary", "text-white");
+    expect(footer).toHaveClass(
+      "bg-gradient-to-br",
+      "from-primary",
+      "to-[#0F2440]",
+      "text-white",
+    );
 
     const footerGrid = footer.querySelector("div.grid");
     expect(footerGrid).not.toBeNull();
