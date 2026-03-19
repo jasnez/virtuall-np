@@ -41,15 +41,27 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
+const validPackageParams = new Set([
+  "starter",
+  "professional",
+  "premium",
+  "pkg_starter",
+  "pkg_professional",
+  "pkg_premium",
+]);
+
 export default function ContactClient() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get("service");
   const packageParam = searchParams.get("package");
+  const hasValidPackageParam = packageParam
+    ? validPackageParams.has(packageParam)
+    : false;
 
   const inferredService: ContactFormValues["serviceInterest"] =
     (serviceParam && serviceEnum.safeParse(serviceParam).success
       ? (serviceParam as ContactFormValues["serviceInterest"])
-      : null) ?? (packageParam ? "bespoke-content" : "other");
+      : null) ?? (hasValidPackageParam ? "bespoke-content" : "other");
 
   const [status, setStatus] = React.useState<
     "idle" | "loading" | "success" | "error"
@@ -209,7 +221,7 @@ export default function ContactClient() {
               />
 
               {/* Honeypot */}
-              <div className="hidden">
+              <div className="absolute -left-[10000px] top-auto w-px h-px overflow-hidden">
                 <label htmlFor="website">Website</label>
                 <input
                   id="website"

@@ -77,7 +77,7 @@ export function Button({
           .join(" ");
       case "nav":
         return [
-          overrides.hasBg ? null : "bg-accent",
+          overrides.hasBg ? null : "bg-accent-dark",
           overrides.hasText ? null : "text-white",
           "px-4",
           "py-2",
@@ -89,10 +89,10 @@ export function Button({
       case "primary":
       default: {
         const parts = [];
-        if (!overrides.hasBg) parts.push("bg-accent");
+        if (!overrides.hasBg) parts.push("bg-accent-dark");
         if (!overrides.hasText) parts.push("text-white");
         parts.push("px-6", "py-3", "rounded-lg");
-        if (!overrides.hasHoverBg) parts.push("hover:bg-accent-dark");
+        if (!overrides.hasHoverBg) parts.push("hover:bg-accent-dark/90");
         // Shadow is safe even if hover bg is overridden.
         parts.push("hover:shadow-md", "transition-all", "duration-200");
         return parts.join(" ");

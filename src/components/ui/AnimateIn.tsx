@@ -45,6 +45,7 @@ type StaggerChildrenProps = {
   direction?: AnimateDirection;
   delay?: number;
   stagger?: number;
+  disableAnimation?: boolean;
 };
 
 export function StaggerChildren({
@@ -53,16 +54,23 @@ export function StaggerChildren({
   direction = "up",
   delay = 0,
   stagger = 0.1,
+  disableAnimation = false,
 }: StaggerChildrenProps) {
   const array = React.Children.toArray(children);
 
   return (
-    <AnimateIn className={className} direction={direction} delay={delay}>
+    <AnimateIn
+      className={className}
+      direction={direction}
+      delay={delay}
+      disableAnimation={disableAnimation}
+    >
       {array.map((child, idx) => (
         <AnimateIn
           key={idx}
           direction={direction}
           delay={delay + idx * stagger}
+          disableAnimation={disableAnimation}
         >
           {child}
         </AnimateIn>

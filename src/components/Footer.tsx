@@ -32,7 +32,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {quickLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/70 hover:text-white">
+                  <Link href={item.href} className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded">
                     {item.label}
                   </Link>
                 </li>
@@ -44,12 +44,12 @@ export function Footer() {
             <h3 className="text-white font-semibold">Contact</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a className="text-white/70 hover:text-white" href={`mailto:${email}`}>
+                <a className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded" href={`mailto:${email}`}>
                   {email}
                 </a>
               </li>
               <li>
-                <a className="text-white/70 hover:text-white" href={telHref}>
+                <a className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded" href={telHref}>
                   {phone}
                 </a>
               </li>
@@ -62,7 +62,7 @@ export function Footer() {
 
         <div className="text-center text-white/50 text-sm py-6">
           <span>© 2026 VirtuALL NP. All rights reserved.</span>{" "}
-          <Link href="/privacy-policy" className="hover:text-white">
+          <Link href="/privacy-policy" className="hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded">
             Privacy Policy
           </Link>
           .

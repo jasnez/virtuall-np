@@ -1,9 +1,37 @@
 import type { Metadata } from "next";
+import siteConfig from "@/content/site-config.json";
+
+const ogImageUrl = "/og-image.jpg";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | VirtuALL NP",
+  title: "Privacy Policy",
   description:
-    "Learn what data VirtuALL NP collects, how we use cookies and analytics, and your privacy rights.",
+    "Read VirtuALL NP's Privacy Policy to understand what data we collect, how analytics and cookies are used, and how to exercise your privacy rights.",
+  alternates: {
+    canonical: `${siteConfig.url}/privacy-policy`,
+  },
+  openGraph: {
+    title: "Privacy Policy",
+    description:
+      "Read VirtuALL NP's Privacy Policy to understand what data we collect, how analytics and cookies are used, and how to exercise your privacy rights.",
+    url: `${siteConfig.url}/privacy-policy`,
+    type: "website",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description:
+      "Read VirtuALL NP's Privacy Policy to understand what data we collect, how analytics and cookies are used, and how to exercise your privacy rights.",
+    images: [ogImageUrl],
+  },
 };
 
 export default function PrivacyPolicyPage() {

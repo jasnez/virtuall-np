@@ -16,10 +16,14 @@ const ogImageUrl = "/og-image.jpg";
 export const metadata: Metadata = {
   title: pageMetadata.pricing.title,
   description: pageMetadata.pricing.description,
+  alternates: {
+    canonical: `${siteConfig.url}/packages`,
+  },
   openGraph: {
     title: pageMetadata.pricing.ogTitle,
     description: pageMetadata.pricing.ogDescription,
     url: `${siteConfig.url}/packages`,
+    type: "website",
     images: [
       {
         url: ogImageUrl,
@@ -82,7 +86,7 @@ export default function PackagesPage() {
                   }`}
                 >
                   {isFeatured && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-sm px-4 py-1 rounded-full shadow-sm">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-dark text-white text-sm px-4 py-1 rounded-full shadow-sm">
                       Most Popular
                     </div>
                   )}

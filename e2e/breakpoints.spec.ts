@@ -16,6 +16,7 @@ const routes: Route[] = [
   { name: "HowWeWork", path: "/how-we-work" },
   { name: "Packages", path: "/packages" },
   { name: "Contact", path: "/contact" },
+  { name: "PrivacyPolicy", path: "/privacy-policy" },
 ];
 
 async function expectMinTouchTarget(locator: Locator) {
@@ -161,6 +162,10 @@ test.describe("Responsive + usability smoke", () => {
           await expectMinTouchTarget(
             page.getByRole("link", { name: "Contact VirtuALL NP" }),
           );
+        }
+
+        if (route.path === "/privacy-policy") {
+          await expect(page.getByRole("heading", { name: "Privacy Policy", level: 1 })).toBeVisible();
         }
 
         if (route.path === "/contact") {

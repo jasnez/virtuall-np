@@ -64,6 +64,10 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#39;");
 }
 
+function stripHtmlTags(value: string): string {
+  return value.replace(/<[^>]*>/g, "").trim();
+}
+
 export async function POST(req: Request) {
   const ip = getClientIp(req);
 
@@ -106,11 +110,13 @@ export async function POST(req: Request) {
 
   const data = parsed.data;
 
-  const safeName = escapeHtml(data.name);
-  const safeEmail = escapeHtml(data.email);
-  const safeService = escapeHtml(data.serviceInterest);
-  const safeBudget = data.budget ? escapeHtml(data.budget) : "Not specified";
-  const safeMessage = escapeHtml(data.message);
+  const safeName = escapeHtml(stripHtmlTags(data.name));
+  const safeEmail = escapeHtml(stripHtmlTags(data.email));
+  const safeService = escapeHtml(stripHtmlTags(data.serviceInterest));
+  const safeBudget = data.budget
+    ? escapeHtml(stripHtmlTags(data.budget))
+    : "Not specified";
+  const safeMessage = escapeHtml(stripHtmlTags(data.message));
 
   const toEmail = process.env.CONTACT_EMAIL || "office@virtuall-np.com";
   const apiKey = process.env.RESEND_API_KEY;

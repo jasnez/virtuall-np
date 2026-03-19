@@ -2,9 +2,13 @@ import homepage from "@/content/homepage.json";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Button } from "@/components/ui/Button";
 
-export function Hero() {
+type HeroProps = {
+  disableAnimation?: boolean;
+};
+
+export function Hero({ disableAnimation = false }: HeroProps) {
   return (
-    <AnimateIn delay={0} disableAnimation>
+    <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <section
         data-testid="hero"
         className="relative w-full min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary to-[#0F2440] overflow-hidden"
@@ -45,13 +49,13 @@ export function Hero() {
                 {homepage.hero.headline}
               </h1>
 
-            <AnimateIn delay={0.2}>
+            <AnimateIn delay={0.2} disableAnimation={disableAnimation}>
               <p className="text-lg md:text-xl text-white/80 mt-6 max-w-2xl mx-auto">
                 {homepage.hero.subheadline}
               </p>
             </AnimateIn>
 
-            <AnimateIn delay={0.4}>
+            <AnimateIn delay={0.4} disableAnimation={disableAnimation}>
               <div className="flex gap-4 justify-center mt-10">
                 <Button
                   href="/services"

@@ -9,10 +9,14 @@ const ogImageUrl = "/og-image.jpg";
 export const metadata: Metadata = {
   title: pageMetadata.contact.title,
   description: pageMetadata.contact.description,
+  alternates: {
+    canonical: `${siteConfig.url}/contact`,
+  },
   openGraph: {
     title: pageMetadata.contact.ogTitle,
     description: pageMetadata.contact.ogDescription,
     url: `${siteConfig.url}/contact`,
+    type: "website",
     images: [
       {
         url: ogImageUrl,

@@ -1,10 +1,5 @@
 import { render } from "@testing-library/react";
 
-jest.mock("next/head", () => ({
-  __esModule: true,
-  default: ({ children }: { children: any }) => <>{children}</>,
-}));
-
 import siteConfig from "@/content/site-config.json";
 import services from "@/content/services.json";
 import packages from "@/content/packages.json";
@@ -26,7 +21,8 @@ describe("StructuredData (JSON-LD)", () => {
     const org = jsonLd["@graph"].find((n: any) => n["@type"] === "Organization");
     expect(org.name).toBe(siteConfig.siteName);
     expect(org.url).toBe(siteConfig.url);
-    expect(org.logo).toBe(siteConfig.logoUrl);
+    expect(org.logo).toBe(`${siteConfig.url}${siteConfig.logoUrl}`);
+    expect(org["@id"]).toBe(`${siteConfig.url}#organization`);
     expect(org.contactPoint.telephone).toBe(siteConfig.contact.phone);
     expect(org.address.addressLocality).toBe(siteConfig.contact.address.city);
     expect(org.sameAs).toEqual([
@@ -37,6 +33,7 @@ describe("StructuredData (JSON-LD)", () => {
     const localBusiness = jsonLd["@graph"].find(
       (n: any) => n["@type"] === "LocalBusiness",
     );
+    expect(localBusiness["@id"]).toBe(`${siteConfig.url}#local-business`);
     expect(localBusiness.name).toBe(siteConfig.siteName);
     expect(localBusiness.url).toBe(siteConfig.url);
     expect(localBusiness.telephone).toBe(siteConfig.contact.phone);
@@ -65,7 +62,10 @@ describe("StructuredData (JSON-LD)", () => {
 
     graph.forEach((node: any) => {
       expect(node["@type"]).toBe("Service");
+      expect(node.url).toContain(`${siteConfig.url}/services#`);
+      expect(node.areaServed).toBe(siteConfig.contact.address.country);
       expect(node.provider).toEqual({
+        "@id": `${siteConfig.url}#organization`,
         "@type": "Organization",
         name: siteConfig.siteName,
         url: siteConfig.url,
@@ -84,8 +84,10 @@ describe("StructuredData (JSON-LD)", () => {
 
     const first = graph[0] as any;
     expect(first["@type"]).toBe("Offer");
+    expect(first.url).toContain(`${siteConfig.url}/packages#`);
     expect(first.price).toBe(packages.packages[0].priceRange.min);
     expect(first.priceCurrency).toBe(packages.packages[0].priceRange.currency);
+    expect(first.availability).toBe("https://schema.org/InStock");
     expect(first.description).toBe(packages.packages[0].researchDepth);
   });
 });

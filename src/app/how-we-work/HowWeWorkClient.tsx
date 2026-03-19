@@ -14,6 +14,14 @@ import homepage from "@/content/homepage.json";
 function FaqAccordion() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && openIndex !== null) setOpenIndex(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [openIndex]);
+
   return (
     <div className="mt-8 max-w-3xl mx-auto divide-y divide-gray-200">
       {faq.map((item, index) => {
@@ -25,7 +33,7 @@ function FaqAccordion() {
             <button
               type="button"
               id={buttonId}
-              className="w-full flex items-center justify-between py-4 text-left"
+              className="w-full flex items-center justify-between py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -107,7 +115,7 @@ export default function HowWeWorkClient() {
                   >
                     <div
                       data-testid="timeline-number"
-                      className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg z-10"
+                      className="w-12 h-12 rounded-full bg-accent-dark text-white flex items-center justify-center font-bold text-lg z-10"
                     >
                       {step.step}
                     </div>

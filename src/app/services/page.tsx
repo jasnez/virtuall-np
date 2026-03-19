@@ -23,10 +23,14 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
 export const metadata: Metadata = {
   title: pageMetadata.services.title,
   description: pageMetadata.services.description,
+  alternates: {
+    canonical: `${siteConfig.url}/services`,
+  },
   openGraph: {
     title: pageMetadata.services.ogTitle,
     description: pageMetadata.services.ogDescription,
     url: `${siteConfig.url}/services`,
+    type: "website",
     images: [
       {
         url: ogImageUrl,

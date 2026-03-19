@@ -31,13 +31,13 @@ describe("Button", () => {
     render(<Button variant="primary">Primary</Button>);
     const el = screen.getByRole("button", { name: "Primary" });
     expect(el).toHaveClass(
-      "bg-accent",
+      "bg-accent-dark",
       "text-white",
       "px-6",
       "py-3",
       "min-h-[44px]",
       "rounded-lg",
-      "hover:bg-accent-dark",
+      "hover:bg-accent-dark/90",
       "hover:shadow-md",
       "transition-all",
       "duration-200",
@@ -66,7 +66,7 @@ describe("Button", () => {
     render(<Button variant="nav">Nav</Button>);
     const el = screen.getByRole("button", { name: "Nav" });
     expect(el).toHaveClass(
-      "bg-accent",
+      "bg-accent-dark",
       "text-white",
       "px-4",
       "py-2",

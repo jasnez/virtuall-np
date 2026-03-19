@@ -8,10 +8,14 @@ const ogImageUrl = "/og-image.jpg";
 export const metadata: Metadata = {
   title: pageMetadata.process.title,
   description: pageMetadata.process.description,
+  alternates: {
+    canonical: `${siteConfig.url}/how-we-work`,
+  },
   openGraph: {
     title: pageMetadata.process.ogTitle,
     description: pageMetadata.process.ogDescription,
     url: `${siteConfig.url}/how-we-work`,
+    type: "website",
     images: [
       {
         url: ogImageUrl,

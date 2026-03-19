@@ -5,9 +5,13 @@ import processSteps from "@/content/process-steps.json";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 
-export function TrustSection() {
+type TrustSectionProps = {
+  disableAnimation?: boolean;
+};
+
+export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
   return (
-    <AnimateIn delay={0}>
+    <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="white" padding="md">
         <div
           data-testid="trust-grid"
@@ -42,14 +46,18 @@ export function TrustSection() {
             <div className="absolute left-4 top-4 bottom-4 border-l-2 border-accent/20 pointer-events-none" />
             <div className="space-y-6">
               {processSteps.map((step, index) => (
-                <AnimateIn key={step.step} delay={index * 0.15}>
+                <AnimateIn
+                  key={step.step}
+                  delay={index * 0.15}
+                  disableAnimation={disableAnimation}
+                >
                   <div
                     data-testid="process-step"
                     className="flex items-start gap-4"
                   >
                     <div
                       data-testid="step-number"
-                      className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold"
+                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold"
                     >
                       {step.step}
                     </div>

@@ -110,8 +110,8 @@ describe("Packages page", () => {
 
       // CTA color sanity checks:
       if (pkg.featured) {
-        expect(cta).toHaveClass("bg-accent", "text-white");
-        expect(cta).toHaveClass("hover:bg-accent-dark");
+        expect(cta).toHaveClass("bg-accent-dark", "text-white");
+        expect(cta).toHaveClass("hover:bg-accent-dark/90");
       } else {
         expect(cta).toHaveClass("border-2", "border-accent");
         expect(cta).toHaveClass("text-accent");

@@ -53,6 +53,15 @@ export function Header() {
     return;
   }, [mobileOpen]);
 
+  React.useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
   return (
     <>
       <header
@@ -75,7 +84,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cx(
-                    "text-text-light hover:text-primary font-medium transition-colors",
+                    "text-text-light hover:text-primary font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded",
                     active && "text-primary font-semibold",
                   )}
                 >
@@ -91,8 +100,9 @@ export function Header() {
 
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 text-primary"
+            className="md:hidden inline-flex items-center justify-center p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X aria-hidden="true" focusable="false" /> : <Menu aria-hidden="true" focusable="false" />}
@@ -113,7 +123,7 @@ export function Header() {
             <div className="h-[72px] flex items-center justify-end px-4 sm:px-6 lg:px-8">
               <button
                 type="button"
-                className="inline-flex items-center justify-center p-2 text-white"
+                className="inline-flex items-center justify-center p-2 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
                 aria-label="Close menu"
                 onClick={() => setMobileOpen(false)}
               >

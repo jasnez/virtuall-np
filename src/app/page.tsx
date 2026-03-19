@@ -15,10 +15,14 @@ const ogImageUrl = "/og-image.jpg";
 export const metadata: Metadata = {
   title: pageMetadata.home.title,
   description: pageMetadata.home.description,
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     title: pageMetadata.home.ogTitle,
     description: pageMetadata.home.ogDescription,
     url: siteConfig.url,
+    type: "website",
     images: [
       {
         url: ogImageUrl,
@@ -37,18 +41,22 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  // Homepage: disable Framer Motion animations to reduce initial JS bundle (Lighthouse unused-JS).
+  // Other pages keep animations; feature unchanged elsewhere.
+  const disableAnimation = true;
   return (
     <main className="min-h-screen">
       <StructuredData page="home" />
-      <Hero />
-      <ValueProps />
-      <ServicesPreview />
-      <TrustSection />
+      <Hero disableAnimation={disableAnimation} />
+      <ValueProps disableAnimation={disableAnimation} />
+      <ServicesPreview disableAnimation={disableAnimation} />
+      <TrustSection disableAnimation={disableAnimation} />
       <CtaSection
         title={homepage.cta.headline}
         description={homepage.cta.description}
         ctaLabel={homepage.cta.ctaText}
         ctaHref="/contact"
+        disableAnimation={disableAnimation}
       />
     </main>
   );

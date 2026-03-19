@@ -13,15 +13,24 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
     bot: Bot,
   };
 
-export function ValueProps() {
+type ValuePropsProps = {
+  disableAnimation?: boolean;
+};
+
+export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
   return (
-    <AnimateIn delay={0}>
+    <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="white" padding="md">
+        <h2 className="sr-only">Why teams choose VirtuALL NP</h2>
         <div
           data-testid="value-props-grid"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          <StaggerChildren className="contents" stagger={0.1}>
+          <StaggerChildren
+            className="contents"
+            stagger={0.1}
+            disableAnimation={disableAnimation}
+          >
             {homepage.valueProps.map((item) => {
               const Icon =
                 iconMap[item.icon as keyof typeof iconMap] ?? Circle;

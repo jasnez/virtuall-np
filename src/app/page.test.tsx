@@ -101,8 +101,8 @@ describe("Home page", () => {
       const ctaSectionButton = screen.getByRole("link", {
         name: homepage.cta.ctaText,
       });
-      expect(ctaSectionButton).toHaveClass("bg-accent", "text-white");
-      expect(ctaSectionButton).toHaveClass("hover:bg-accent-dark");
+      expect(ctaSectionButton).toHaveClass("bg-accent-dark", "text-white");
+      expect(ctaSectionButton).toHaveClass("hover:bg-accent-dark/90");
       unmount();
     }
   });

@@ -17,11 +17,15 @@ jest.mock("lucide-react", () => {
   };
 });
 
+let mockQuery: Record<string, string | null> = {
+  service: "research",
+  package: "pkg_starter",
+};
+
 jest.mock("next/navigation", () => ({
   __esModule: true,
   useSearchParams: () => ({
-    get: (key: string) =>
-      key === "service" ? "research" : key === "package" ? "pkg_starter" : null,
+    get: (key: string) => mockQuery[key] ?? null,
   }),
 }));
 
@@ -39,6 +43,21 @@ import ContactPage from "./page";
 
 describe("Contact page", () => {
   jest.setTimeout(20000);
+  beforeEach(() => {
+    mockQuery = {
+      service: "research",
+      package: "pkg_starter",
+    };
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true }),
+    }) as jest.Mock;
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it("renders mini hero and contact form with fields", () => {
     render(<ContactPage />);
 
@@ -68,11 +87,11 @@ describe("Contact page", () => {
       screen.getByRole("heading", { level: 2, name: "Contact Information" }),
     ).toBeInTheDocument();
 
-    const emailLink = screen.getByRole("link", { name: /hello@virtuallnp\.com/i });
-    expect(emailLink).toHaveAttribute("href", "mailto:hello@virtuallnp.com");
+    const emailLink = screen.getByRole("link", { name: /office@virtuall-np\.com/i });
+    expect(emailLink).toHaveAttribute("href", "mailto:office@virtuall-np.com");
 
-    const phoneLink = screen.getByRole("link", { name: /\+49 123 456 7890/i });
-    expect(phoneLink).toHaveAttribute("href", "tel:+491234567890");
+    const phoneLink = screen.getByRole("link", { name: /\+381 63 8 712 091/i });
+    expect(phoneLink).toHaveAttribute("href", "tel:+381638712091");
 
     expect(
       screen.getByText(/We respond within 24 hours on business days./i),
@@ -94,6 +113,28 @@ describe("Contact page", () => {
 
     const serviceSelect = screen.getByLabelText("Service interest") as HTMLSelectElement;
     expect(serviceSelect.value).toBe("research");
+  });
+
+  it("preselects default service from valid package query", () => {
+    mockQuery = {
+      service: null,
+      package: "professional",
+    };
+
+    render(<ContactPage />);
+    const serviceSelect = screen.getByLabelText("Service interest") as HTMLSelectElement;
+    expect(serviceSelect.value).toBe("bespoke-content");
+  });
+
+  it("does not preselect package fallback for invalid package query", () => {
+    mockQuery = {
+      service: null,
+      package: "nonexistent",
+    };
+
+    render(<ContactPage />);
+    const serviceSelect = screen.getByLabelText("Service interest") as HTMLSelectElement;
+    expect(serviceSelect.value).toBe("other");
   });
 
   it("shows validation errors when submitting empty form", async () => {
@@ -125,6 +166,7 @@ describe("Contact page", () => {
       screen.getByLabelText("Service interest"),
       "research",
     );
+    await user.selectOptions(screen.getByLabelText("Budget (optional)"), "under-500");
     await user.type(
       screen.getByLabelText("Project details"),
       "This is a detailed message.",
@@ -134,9 +176,41 @@ describe("Contact page", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/Share a bit about your product/i),
+        screen.getByText(/Thank you! We will respond within 24 hours./i),
       ).toBeInTheDocument();
     });
+  });
+
+  it("shows backend error message when API request fails", async () => {
+    const user = userEvent.setup();
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: "Failed to send message." }),
+    });
+
+    render(<ContactPage />);
+    await user.type(screen.getByLabelText("Name"), "John Doe");
+    await user.type(screen.getByLabelText("Email"), "john@example.com");
+    await user.selectOptions(screen.getByLabelText("Budget (optional)"), "under-500");
+    await user.type(
+      screen.getByLabelText("Project details"),
+      "This is a detailed message.",
+    );
+
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+    expect(
+      await screen.findByText(/Failed to send message\./i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders honeypot off-screen instead of display none", () => {
+    render(<ContactPage />);
+    const website = screen.getByTestId("honeypot-website");
+    const wrapper = website.parentElement;
+    expect(wrapper).not.toBeNull();
+    expect(wrapper).toHaveClass("absolute");
+    expect(wrapper).toHaveClass("-left-[10000px]");
+    expect(wrapper).not.toHaveClass("hidden");
   });
 
   it("is usable on mobile: stacked form, readable text, touch target submit", () => {

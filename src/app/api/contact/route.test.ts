@@ -31,7 +31,11 @@ describe("POST /api/contact", () => {
   const originalEnv = process.env;
 
   beforeEach(() => {
-    process.env = { ...originalEnv, CONTACT_EMAIL: "office@virtuall-np.com" };
+    process.env = {
+      ...originalEnv,
+      CONTACT_EMAIL: "office@virtuall-np.com",
+      RESEND_API_KEY: "test_api_key",
+    };
     const { __sendMock } = jest.requireMock("resend");
     __sendMock.mockReset();
   });
@@ -133,6 +137,28 @@ describe("POST /api/contact", () => {
     expect(res.status).toBe(429);
     const json = await res.json();
     expect(json.success).toBe(false);
+  });
+
+  it("strips html tags from user fields before sending email", async () => {
+    const body = {
+      name: "<b>John Doe</b>",
+      email: "john@example.com",
+      serviceInterest: "research",
+      budget: "500-1000",
+      message: "<script>alert('xss')</script>Hello world message",
+      website: "",
+    };
+
+    const res = await POST(createRequest(body, "203.0.113.77"));
+    expect(res.status).toBe(200);
+
+    const { __sendMock } = jest.requireMock("resend");
+    expect(__sendMock).toHaveBeenCalledTimes(1);
+    const payload = __sendMock.mock.calls[0][0];
+    expect(payload.html).not.toContain("<script>");
+    expect(payload.html).toContain("Hello world message");
+    expect(payload.html).not.toContain("<b>John Doe</b>");
+    expect(payload.html).toContain("John Doe");
   });
 });
 

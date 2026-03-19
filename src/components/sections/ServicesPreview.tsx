@@ -13,9 +13,15 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
     bot: Bot,
   };
 
-export function ServicesPreview() {
+type ServicesPreviewProps = {
+  disableAnimation?: boolean;
+};
+
+export function ServicesPreview({
+  disableAnimation = false,
+}: ServicesPreviewProps) {
   return (
-    <AnimateIn delay={0}>
+    <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="alt" padding="md">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-semibold text-text-main">
@@ -31,7 +37,11 @@ export function ServicesPreview() {
           data-testid="services-grid"
           className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          <StaggerChildren className="contents" stagger={0.1}>
+          <StaggerChildren
+            className="contents"
+            stagger={0.1}
+            disableAnimation={disableAnimation}
+          >
             {services.map((svc) => {
               const Icon = iconMap[svc.icon as keyof typeof iconMap] ?? Sparkles;
 

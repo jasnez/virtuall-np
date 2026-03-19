@@ -187,6 +187,15 @@ describe("Header", () => {
     }
   });
 
+  it("exposes aria-expanded on mobile menu button", async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+    const menuButton = screen.getByRole("button", { name: /open menu/i });
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    await user.click(menuButton);
+    expect(menuButton).toHaveAttribute("aria-expanded", "true");
+  });
+
   it("marks decorative icons as aria-hidden", async () => {
     const user = userEvent.setup();
     render(<Header />);
