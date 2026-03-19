@@ -28,11 +28,17 @@ describe("Footer", () => {
 
     const footer = screen.getByTestId("site-footer");
     expect(footer).toHaveClass(
+      "relative",
+      "overflow-hidden",
       "bg-gradient-to-br",
       "from-primary",
       "to-[#0F2440]",
       "text-white",
     );
+
+    const patternLayer = screen.getByTestId("footer-pattern");
+    expect(patternLayer).toHaveAttribute("aria-hidden", "true");
+    expect(patternLayer).toHaveClass("absolute", "inset-0", "opacity-5");
 
     const footerGrid = footer.querySelector("div.grid");
     expect(footerGrid).not.toBeNull();

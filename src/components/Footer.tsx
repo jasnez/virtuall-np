@@ -22,9 +22,40 @@ export function Footer() {
   return (
     <footer
       data-testid="site-footer"
-      className="bg-gradient-to-br from-primary to-[#0F2440] text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-primary to-[#0F2440] text-white"
     >
-      <div className={`${PAGE_CONTAINER_X} pt-16 pb-8`}>
+      <div
+        aria-hidden="true"
+        data-testid="footer-pattern"
+        className="pointer-events-none absolute inset-0 opacity-5"
+      >
+        <svg
+          className="h-full w-full"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="geo-footer"
+              width="80"
+              height="80"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M0 80L80 0M-20 20L20 -20M60 100L100 60"
+                stroke="white"
+                strokeWidth="2"
+                fill="none"
+              />
+              <circle cx="40" cy="40" r="2" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="1200" height="800" fill="url(#geo-footer)" />
+        </svg>
+      </div>
+
+      <div className={`relative z-10 ${PAGE_CONTAINER_X} pt-16 pb-8`}>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
           <div>
             <div className="text-xl font-bold tracking-tight">{siteConfig.siteName}</div>
