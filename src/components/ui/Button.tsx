@@ -83,8 +83,10 @@ export function Button({
           overrides.hasText ? null : "text-white",
           "px-4",
           "py-2",
-          "rounded-md",
+          "rounded-lg",
           "text-sm",
+          "hover:bg-accent-dark/90",
+          "transition-colors duration-200",
         ]
           .filter(Boolean)
           .join(" ");

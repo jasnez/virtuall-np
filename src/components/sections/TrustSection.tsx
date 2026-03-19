@@ -12,10 +12,10 @@ type TrustSectionProps = {
 export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
   return (
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
-      <SectionWrapper bgColor="white" padding="md">
+      <SectionWrapper bgColor="white" padding="lg">
         <div
           data-testid="trust-grid"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center"
         >
           <div className="space-y-6">
             <h2 className="text-3xl font-semibold text-text-main">
@@ -28,23 +28,23 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
             </div>
             <div
               data-testid="guarantee-badge"
-              className="inline-flex items-center gap-2 rounded-full bg-accent/5 px-4 py-2"
+              className="inline-flex items-center gap-3 rounded-full bg-accent/10 px-5 py-3"
             >
               <CheckCircle2
-                className="w-5 h-5 text-accent"
+                className="w-5 h-5 text-accent shrink-0"
                 aria-hidden="true"
                 focusable="false"
               />
-              <strong className="text-sm text-text-main">
+              <strong className="text-sm text-text-main leading-snug">
                 Thoughtful process, source-backed work, and clear expectations on
                 every project.
               </strong>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-4 top-4 bottom-4 border-l-2 border-accent/20 pointer-events-none" />
-            <div className="space-y-6">
+          <div className="relative pl-1">
+            <div className="absolute left-4 top-5 bottom-5 w-px bg-accent/20 pointer-events-none" />
+            <div className="space-y-8">
               {processSteps.map((step, index) => (
                 <AnimateIn
                   key={step.step}
@@ -57,15 +57,15 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
                   >
                     <div
                       data-testid="step-number"
-                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold"
+                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold shrink-0"
                     >
                       {step.step}
                     </div>
-                    <div className="ml-2">
-                      <h3 className="font-medium text-text-main">
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-semibold text-text-main">
                         {step.title}
                       </h3>
-                      <p className="mt-1 text-sm text-text-light">
+                      <p className="mt-1.5 text-sm text-text-light leading-relaxed">
                         {step.description}
                       </p>
                     </div>

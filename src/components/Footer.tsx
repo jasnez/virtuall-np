@@ -15,24 +15,27 @@ export function Footer() {
   const addressLine = `${address.street}, ${address.zip} ${address.city}, ${address.country}`;
   const telHref = `tel:${phone.replace(/\s+/g, "")}`;
 
+  const linkClass =
+    "text-white/70 hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded";
+
   return (
     <footer data-testid="site-footer" className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-20">
           <div>
             <div className="text-xl font-bold">{siteConfig.siteName}</div>
-            <p className="mt-3 text-white/70">
+            <p className="mt-4 text-white/75 leading-relaxed max-w-sm">
               High-signal content and research that turns complex ideas into clear
               decisions. Built for brands that care about clarity and credibility.
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold">Quick Links</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">Quick Links</h3>
+            <ul className="mt-4 space-y-3">
               {quickLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded">
+                  <Link href={item.href} className={linkClass}>
                     {item.label}
                   </Link>
                 </li>
@@ -41,15 +44,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold">Contact</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">Contact</h3>
+            <ul className="mt-4 space-y-3">
               <li>
-                <a className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded" href={`mailto:${email}`}>
+                <a className={linkClass} href={`mailto:${email}`}>
                   {email}
                 </a>
               </li>
               <li>
-                <a className="text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded" href={telHref}>
+                <a className={linkClass} href={telHref}>
                   {phone}
                 </a>
               </li>
@@ -58,11 +61,11 @@ export function Footer() {
           </div>
         </div>
 
-        <hr className="border-white/20" />
+        <hr className="border-white/15" />
 
-        <div className="text-center text-white/50 text-sm py-6">
+        <div className="text-center text-white/50 text-sm py-8">
           <span>© 2026 VirtuALL NP. All rights reserved.</span>{" "}
-          <Link href="/privacy-policy" className="hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded">
+          <Link href="/privacy-policy" className={`${linkClass} inline-block`}>
             Privacy Policy
           </Link>
           .

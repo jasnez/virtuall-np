@@ -43,29 +43,29 @@ export function Hero({ disableAnimation = false }: HeroProps) {
           </svg>
         </div>
 
-        <div className="relative px-6 py-16 w-full">
+        <div className="relative px-6 py-20 sm:py-24 lg:py-28 w-full">
           <div className="mx-auto max-w-3xl text-center text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight">
                 {homepage.hero.headline}
               </h1>
 
             <AnimateIn delay={0.2} disableAnimation={disableAnimation}>
-              <p className="text-lg md:text-xl text-white/80 mt-6 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-white/85 mt-7 max-w-2xl mx-auto leading-relaxed">
                 {homepage.hero.subheadline}
               </p>
             </AnimateIn>
 
             <AnimateIn delay={0.4} disableAnimation={disableAnimation}>
-              <div className="flex gap-4 justify-center mt-10">
+              <div className="flex flex-wrap gap-4 justify-center mt-12">
                 <Button
                   href="/services"
-                  className="bg-white text-[#0F2440] hover:bg-white/90 rounded-lg"
+                  className="bg-white text-[#0F2440] hover:bg-white/95 rounded-lg"
                 >
                   See Our Services
                 </Button>
                 <Button
                   href="/contact"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:text-[#0F2440] rounded-lg"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:text-white rounded-lg"
                 >
                   Get a Quote
                 </Button>

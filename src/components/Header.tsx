@@ -67,16 +67,16 @@ export function Header() {
       <header
         data-testid="site-header"
         className={cx(
-          "sticky top-0 z-50 h-[72px] backdrop-blur-md transition-colors",
-          isScrolled ? "bg-white shadow-sm" : "bg-white/95",
+          "sticky top-0 z-50 h-[72px] backdrop-blur-md transition-all duration-200",
+          isScrolled ? "bg-white shadow-[0_1px_3px_rgba(27,58,92,0.06)]" : "bg-white/95",
         )}
       >
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Link href="/" className="font-bold text-xl text-primary">
+          <Link href="/" className="font-bold text-xl text-primary hover:text-primary-light transition-colors">
             VirtuALL NP
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
               const active = isActive(pathname, item.href);
               return (
@@ -84,7 +84,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cx(
-                    "text-text-light hover:text-primary font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded",
+                    "text-text-light hover:text-primary font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md py-1",
                     active && "text-primary font-semibold",
                   )}
                 >
@@ -100,7 +100,7 @@ export function Header() {
 
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+            className="md:hidden inline-flex items-center justify-center p-2.5 text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-lg"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}

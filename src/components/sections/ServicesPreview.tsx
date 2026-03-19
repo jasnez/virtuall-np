@@ -22,12 +22,12 @@ export function ServicesPreview({
 }: ServicesPreviewProps) {
   return (
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
-      <SectionWrapper bgColor="alt" padding="md">
+      <SectionWrapper bgColor="alt" padding="lg">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-semibold text-text-main">
             What We Do
           </h2>
-          <p className="mt-4 text-text-light">
+          <p className="mt-4 text-text-light leading-relaxed">
             A quick look at how we help teams turn complex, high-stakes work into
             clear, credible content and research.
           </p>
@@ -35,7 +35,7 @@ export function ServicesPreview({
 
         <div
           data-testid="services-grid"
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           <StaggerChildren
             className="contents"
@@ -50,20 +50,20 @@ export function ServicesPreview({
                   key={svc.id}
                   data-testid="service-card"
                   href={`/services#${svc.slug}`}
-                  className="group rounded-xl bg-white/80 hover:bg-white shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col"
+                  className="group rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200/80 transition-all duration-200 p-6 flex flex-col"
                 >
                   <Icon
-                    className="w-12 h-12 text-accent mb-4"
+                    className="w-10 h-10 text-accent mb-4 shrink-0"
                     aria-hidden="true"
                     focusable="false"
                   />
-                  <h3 className="font-semibold text-lg text-text-main">
+                  <h3 className="text-lg font-semibold text-text-main">
                     {svc.title}
                   </h3>
-                  <p className="mt-2 text-sm text-text-light">
+                  <p className="mt-2 text-sm text-text-light leading-relaxed">
                     {svc.shortDescription}
                   </p>
-                  <span className="mt-4 inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                  <span className="mt-5 inline-flex items-center text-accent group-hover:text-accent-dark font-medium text-sm transition-colors duration-200">
                     Learn More →
                   </span>
                 </a>

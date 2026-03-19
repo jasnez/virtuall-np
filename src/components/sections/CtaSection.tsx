@@ -19,11 +19,11 @@ export function CtaSection({
 }: CtaSectionProps) {
   return (
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
-      <SectionWrapper bgColor="navy" padding="md">
+      <SectionWrapper bgColor="navy" padding="lg">
         <AnimateIn className="text-center text-white" disableAnimation={disableAnimation}>
-          <h2 className="text-3xl font-bold">{title}</h2>
-          <p className="text-white/80 mt-4 max-w-xl mx-auto">{description}</p>
-          <Button href={ctaHref} className="mt-8">
+          <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+          <p className="text-white/85 mt-5 max-w-xl mx-auto leading-relaxed">{description}</p>
+          <Button href={ctaHref} className="mt-10">
             {ctaLabel}
           </Button>
         </AnimateIn>

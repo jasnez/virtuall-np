@@ -45,7 +45,7 @@ export default function Home() {
   // Other pages keep animations; feature unchanged elsewhere.
   const disableAnimation = true;
   return (
-    <main className="min-h-screen">
+    <>
       <StructuredData page="home" />
       <Hero disableAnimation={disableAnimation} />
       <ValueProps disableAnimation={disableAnimation} />
@@ -58,6 +58,6 @@ export default function Home() {
         ctaHref="/contact"
         disableAnimation={disableAnimation}
       />
-    </main>
+    </>
   );
 }
