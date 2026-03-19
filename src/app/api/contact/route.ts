@@ -28,8 +28,6 @@ const contactSchema = z.object({
 
 type ContactPayload = z.infer<typeof contactSchema>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // In-memory rate limiting (per-process). For production, use a shared store.
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const RATE_LIMIT_MAX_REQUESTS = 5;
@@ -115,6 +113,17 @@ export async function POST(req: Request) {
   const safeMessage = escapeHtml(data.message);
 
   const toEmail = process.env.CONTACT_EMAIL || "office@virtuall-np.com";
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      {
+        success: false,
+        error:
+          "Email service is not configured. Please try again later or contact us directly.",
+      },
+      { status: 500 },
+    );
+  }
 
   const html = `
     <h2>New website inquiry</h2>
@@ -129,6 +138,7 @@ export async function POST(req: Request) {
   `;
 
   try {
+    const resend = new Resend(apiKey);
     await resend.emails.send({
       to: toEmail,
       from: "VirtuALL NP Website <noreply@virtuall-np.com>",
