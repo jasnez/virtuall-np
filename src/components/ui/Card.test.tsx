@@ -18,7 +18,7 @@ describe("Card", () => {
     const el = screen.getByTestId("card");
     expect(el).toHaveClass(
       "bg-white",
-      "rounded-xl",
+      "rounded-2xl",
       "border",
       "border-gray-200/80",
     );
@@ -28,32 +28,30 @@ describe("Card", () => {
     render(<Card>Hover</Card>);
     const el = screen.getByTestId("card");
     expect(el).toHaveClass(
-      "hover:border-gray-300/80",
-      "hover:bg-gray-50/50",
-      "transition-colors",
-      "duration-200",
-      "ease-out",
+      "hover:border-gray-400/50",
+      "hover:bg-gray-50/55",
     );
+    expect(el.className).toMatch(/duration-200/);
+    expect(el.className).toMatch(/ease-out/);
   });
 
   it("can disable hover effects", () => {
     render(<Card hover={false}>NoHover</Card>);
     const el = screen.getByTestId("card");
-    expect(el).not.toHaveClass("hover:border-gray-300/80");
-    expect(el).not.toHaveClass("hover:bg-gray-50/50");
-    expect(el).not.toHaveClass("transition-colors");
-    expect(el).not.toHaveClass("duration-200");
+    expect(el).not.toHaveClass("hover:border-gray-400/50");
+    expect(el).not.toHaveClass("hover:bg-gray-50/55");
+    expect(el.className).not.toMatch(/transition-\[border-color/);
   });
 
   it("applies padding variants", () => {
     const { rerender } = render(<Card padding="sm">P</Card>);
-    expect(screen.getByTestId("card")).toHaveClass("p-4");
+    expect(screen.getByTestId("card")).toHaveClass("p-4", "md:p-5");
 
     rerender(<Card padding="md">P</Card>);
-    expect(screen.getByTestId("card")).toHaveClass("p-6");
+    expect(screen.getByTestId("card")).toHaveClass("p-5", "md:p-6");
 
     rerender(<Card padding="lg">P</Card>);
-    expect(screen.getByTestId("card")).toHaveClass("p-8");
+    expect(screen.getByTestId("card")).toHaveClass("p-5", "md:p-6");
   });
 
   it("merges custom className", () => {
@@ -61,4 +59,3 @@ describe("Card", () => {
     expect(screen.getByTestId("card")).toHaveClass("my-card");
   });
 });
-

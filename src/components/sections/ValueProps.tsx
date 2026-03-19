@@ -4,6 +4,14 @@ import { Bot, Circle, MessageCircle, Search, Sparkles } from "lucide-react";
 import homepage from "@/content/homepage.json";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { AnimateIn, StaggerChildren } from "@/components/ui/AnimateIn";
+import {
+  cardChrome,
+  cardDescriptionClass,
+  cardHover,
+  cardIconClass,
+  cardPadding,
+  cardTitleClass,
+} from "@/lib/card-surface";
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> =
   {
@@ -43,18 +51,16 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
                 <div
                   key={item.title}
                   data-testid="value-prop-item"
-                  className="flex flex-col items-center text-center p-6 sm:p-8 rounded-xl border border-gray-200/80 bg-white hover:border-gray-300/80 hover:bg-gray-50/40 transition-colors duration-200 ease-out h-full"
+                  className={`flex flex-col items-center text-center h-full ${cardChrome} ${cardPadding.md} ${cardHover}`}
                 >
                   <Icon
                     data-testid="value-icon"
-                    className="w-10 h-10 text-accent mb-4 shrink-0"
+                    className={cardIconClass}
                     aria-hidden="true"
                     focusable="false"
                   />
-                  <h3 className="text-lg font-semibold text-text-main tracking-tight leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-text-light leading-[1.62]">{item.description}</p>
+                  <h3 className={`text-center ${cardTitleClass}`}>{item.title}</h3>
+                  <p className={cardDescriptionClass}>{item.description}</p>
                 </div>
               );
             })}

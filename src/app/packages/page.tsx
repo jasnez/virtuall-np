@@ -10,6 +10,13 @@ import { Button } from "@/components/ui/Button";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CtaSection } from "@/components/sections/CtaSection";
 import StructuredData from "@/components/StructuredData";
+import {
+  cardChrome,
+  cardDescriptionClass,
+  cardHover,
+  cardPadding,
+  cardTitleClass,
+} from "@/lib/card-surface";
 import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 const ogImageUrl = "/opengraph-image";
@@ -84,7 +91,7 @@ export default function PackagesPage() {
                 <div data-testid="pricing-card" className="h-full">
                 <div
                   data-testid={`pricing-card-${pkg.id}`}
-                  className={`p-8 rounded-2xl bg-white border border-gray-200/80 hover:border-gray-300/80 transition-colors duration-200 ease-out flex flex-col h-full ${
+                  className={`flex flex-col h-full ${cardChrome} ${cardPadding.md} ${cardHover} ${
                     isFeatured ? "relative ring-2 ring-accent ring-offset-2 ring-offset-white" : ""
                   }`}
                 >
@@ -94,21 +101,19 @@ export default function PackagesPage() {
                     </div>
                   )}
 
-                  <h3 className="text-xl font-bold text-text-main">
+                  <h3 className="text-xl font-bold text-text-main mb-3">
                     {pkg.name}
                   </h3>
-                  <p className="mt-1 text-sm text-text-light">
-                    {pkg.targetClient}
-                  </p>
+                  <p className={cardDescriptionClass}>{pkg.targetClient}</p>
 
                   <div className="mt-4 text-3xl font-bold text-primary">
                     €{pkg.priceRange.min}–€{pkg.priceRange.max}
                   </div>
-                  <p className="mt-2 text-sm text-text-light">
+                  <p className={`mt-2 ${cardDescriptionClass}`}>
                     Up to {pkg.wordLimit.toLocaleString()} words ·{" "}
                     {pkg.turnaround}
                   </p>
-                  <p className="mt-1 text-sm text-text-light">
+                  <p className={`mt-1 ${cardDescriptionClass}`}>
                     {pkg.revisions} revision cycle{pkg.revisions > 1 ? "s" : ""}{" "}
                     · {pkg.researchDepth}
                   </p>
@@ -163,12 +168,10 @@ export default function PackagesPage() {
               <AnimateIn key={addon.id} delay={index * 0.1}>
                 <div
                   data-testid="addon-card"
-                  className="p-6 rounded-xl bg-white border border-gray-200/80 hover:border-gray-300/80 transition-colors duration-200 ease-out h-full flex flex-col"
+                  className={`h-full flex flex-col ${cardChrome} ${cardPadding.md} ${cardHover}`}
                 >
-                  <h3 className="text-lg font-semibold text-text-main">
-                    {addon.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-text-light flex-1">
+                  <h3 className={cardTitleClass}>{addon.name}</h3>
+                  <p className={`${cardDescriptionClass} flex-1`}>
                     {addon.description}
                   </p>
                   <div className="mt-4 font-semibold text-accent">
