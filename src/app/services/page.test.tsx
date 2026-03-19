@@ -135,7 +135,7 @@ describe("Services page", () => {
       const cta = screen.getByRole("link", {
         name: `Get a Quote for ${services[0].title}`,
       });
-      expect(cta).toHaveClass("min-h-[44px]");
+      expect(cta).toHaveClass("min-h-[48px]");
 
       unmount();
     }

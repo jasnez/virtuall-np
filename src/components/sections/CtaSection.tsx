@@ -28,10 +28,7 @@ export function CtaSection({
             {description}
           </p>
           <div>
-            <Button
-              href={ctaHref}
-              className="font-semibold px-8 py-4 text-base min-h-12 rounded-xl"
-            >
+            <Button href={ctaHref}>
               {ctaLabel}
             </Button>
           </div>

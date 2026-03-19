@@ -171,7 +171,7 @@ describe("Header", () => {
       expect(navContainer).toHaveClass("hidden", "md:flex");
 
       const quoteLink = screen.getByRole("link", { name: "Get a Quote" });
-      expect(quoteLink).toHaveClass("min-h-[44px]");
+      expect(quoteLink).toHaveClass("min-h-[48px]");
 
       // overlay toggles should work at any width
       // eslint-disable-next-line @typescript-eslint/no-floating-promises

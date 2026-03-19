@@ -87,8 +87,8 @@ describe("Home page", () => {
       // touch targets: hero CTAs
       const cta1 = screen.getByRole("link", { name: "See Our Services" });
       const cta2 = screen.getByRole("link", { name: "Get a Quote" });
-      expect(cta1).toHaveClass("min-h-[44px]");
-      expect(cta2).toHaveClass("min-h-[44px]");
+      expect(cta1).toHaveClass("min-h-[48px]");
+      expect(cta2).toHaveClass("min-h-[48px]");
 
       // CTA color sanity checks (avoid white text on light backgrounds).
       expect(cta1).toHaveClass("text-[#0F2440]");
@@ -102,7 +102,7 @@ describe("Home page", () => {
         name: homepage.cta.ctaText,
       });
       expect(ctaSectionButton).toHaveClass("bg-accent-dark", "text-white");
-      expect(ctaSectionButton).toHaveClass("hover:bg-accent-dark/90");
+      expect(ctaSectionButton).toHaveClass("hover:bg-accent-dark/92");
       unmount();
     }
   });

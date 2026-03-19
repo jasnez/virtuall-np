@@ -232,7 +232,7 @@ describe("Contact page", () => {
       expect(grid).toHaveClass("lg:grid-cols-2");
 
       const submit = screen.getByRole("button", { name: /send message/i });
-      expect(submit).toHaveClass("min-h-[44px]");
+      expect(submit).toHaveClass("min-h-[48px]");
 
       unmount();
     }

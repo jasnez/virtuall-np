@@ -111,11 +111,10 @@ describe("Packages page", () => {
       // CTA color sanity checks:
       if (pkg.featured) {
         expect(cta).toHaveClass("bg-accent-dark", "text-white");
-        expect(cta).toHaveClass("hover:bg-accent-dark/90");
+        expect(cta).toHaveClass("hover:bg-accent-dark/92");
       } else {
-        expect(cta).toHaveClass("border-2", "border-accent");
-        expect(cta).toHaveClass("text-accent");
-        expect(cta).toHaveClass("hover:bg-accent", "hover:text-white");
+        expect(cta).toHaveClass("border-gray-300", "bg-white", "text-text-main");
+        expect(cta).toHaveClass("hover:border-accent/50", "hover:text-accent-dark");
       }
     });
   });
@@ -241,7 +240,7 @@ describe("Packages page", () => {
       // CTA buttons meet touch target min height
       const pkg = pricing.packages[0];
       const cta = screen.getByRole("link", { name: new RegExp(pkg.ctaText, "i") });
-      expect(cta).toHaveClass("min-h-[44px]");
+      expect(cta).toHaveClass("min-h-[48px]");
 
       unmount();
     }

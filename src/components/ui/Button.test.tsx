@@ -27,32 +27,36 @@ describe("Button", () => {
     );
   });
 
-  it("applies primary variant classes (including hover + transition)", () => {
+  it("applies primary variant classes (including hover lift + transition)", () => {
     render(<Button variant="primary">Primary</Button>);
     const el = screen.getByRole("button", { name: "Primary" });
     expect(el).toHaveClass(
       "bg-accent-dark",
       "text-white",
-      "px-6",
-      "py-3",
-      "min-h-[44px]",
+      "px-[18px]",
+      "md:px-6",
+      "min-h-[48px]",
+      "h-12",
       "rounded-xl",
-      "hover:bg-accent-dark/90",
-      "transition-colors",
-      "duration-200",
-      "ease-out",
+      "font-semibold",
+      "text-base",
+      "hover:bg-accent-dark/92",
+      "hover:-translate-y-px",
+      "gap-2",
     );
+    expect(el.className).toMatch(/duration-200/);
+    expect(el.className).toMatch(/ease-out/);
   });
 
   it("applies secondary variant classes", () => {
     render(<Button variant="secondary">Secondary</Button>);
     const el = screen.getByRole("button", { name: "Secondary" });
     expect(el).toHaveClass(
-      "border-2",
-      "border-accent",
-      "text-accent",
-      "hover:bg-accent",
-      "hover:text-white",
+      "border-gray-300",
+      "bg-white",
+      "text-text-main",
+      "hover:border-accent/50",
+      "hover:-translate-y-px",
     );
   });
 
@@ -68,11 +72,12 @@ describe("Button", () => {
     expect(el).toHaveClass(
       "bg-accent-dark",
       "text-white",
-      "px-5",
-      "py-2.5",
-      "min-h-[44px]",
+      "md:px-6",
+      "min-h-[48px]",
+      "h-12",
       "rounded-xl",
-      "text-sm",
+      "text-base",
+      "font-semibold",
     );
   });
 
@@ -83,9 +88,11 @@ describe("Button", () => {
       </Button>,
     );
     expect(screen.getByRole("button", { name: "Size" })).toHaveClass(
+      "h-11",
+      "min-h-[44px]",
       "px-4",
-      "py-2",
-      "text-sm",
+      "text-base",
+      "font-semibold",
     );
 
     rerender(
@@ -94,8 +101,9 @@ describe("Button", () => {
       </Button>,
     );
     expect(screen.getByRole("button", { name: "Size" })).toHaveClass(
-      "px-6",
-      "py-3",
+      "px-[18px]",
+      "md:px-6",
+      "h-12",
       "text-base",
     );
 
@@ -105,9 +113,10 @@ describe("Button", () => {
       </Button>,
     );
     expect(screen.getByRole("button", { name: "Size" })).toHaveClass(
-      "px-8",
-      "py-4",
-      "text-lg",
+      "px-6",
+      "md:px-6",
+      "h-12",
+      "text-base",
     );
   });
 
@@ -165,4 +174,3 @@ describe("Button", () => {
     );
   });
 });
-
