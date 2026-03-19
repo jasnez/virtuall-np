@@ -15,10 +15,10 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
       <SectionWrapper bgColor="white" padding="lg">
         <div
           data-testid="trust-grid"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-14 lg:gap-16 items-start"
         >
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-text-main">
+            <h2 className="text-3xl font-semibold text-text-main tracking-tight">
               Why Work With Us
             </h2>
             <div className="space-y-4 text-text-light leading-relaxed">
@@ -42,8 +42,8 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
             </div>
           </div>
 
-          <div className="relative pl-1">
-            <div className="absolute left-4 top-5 bottom-5 w-px bg-accent/20 pointer-events-none" />
+          <div className="relative pl-0 sm:pl-1">
+            <div className="absolute left-4 top-4 bottom-4 w-px bg-accent/25 pointer-events-none" aria-hidden />
             <div className="space-y-8">
               {processSteps.map((step, index) => (
                 <AnimateIn
@@ -57,15 +57,15 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
                   >
                     <div
                       data-testid="step-number"
-                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold shrink-0"
+                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold shrink-0 flex-shrink-0"
                     >
                       {step.step}
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="text-lg font-semibold text-text-main">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg font-semibold text-text-main tracking-tight">
                         {step.title}
                       </h3>
-                      <p className="mt-1.5 text-sm text-text-light leading-relaxed">
+                      <p className="mt-2 text-sm text-text-light leading-relaxed">
                         {step.description}
                       </p>
                     </div>
