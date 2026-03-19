@@ -44,9 +44,12 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
             </div>
           </div>
 
-          <div className="relative pl-0 sm:pl-1">
-            <div className="absolute left-4 top-4 bottom-4 w-px bg-accent/25 pointer-events-none" aria-hidden />
-            <div className="space-y-8">
+          <div className="relative">
+            <div
+              className="absolute left-[1.28rem] top-6 bottom-6 w-px bg-accent/20 pointer-events-none"
+              aria-hidden
+            />
+            <div className="space-y-6 sm:space-y-7">
               {processSteps.map((step, index) => (
                 <AnimateIn
                   key={step.step}
@@ -55,19 +58,19 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
                 >
                   <div
                     data-testid="process-step"
-                    className="flex items-start gap-4"
+                    className="relative flex items-start gap-4 rounded-2xl border border-gray-200/80 bg-white p-5 sm:p-6"
                   >
                     <div
                       data-testid="step-number"
-                      className="w-8 h-8 rounded-full bg-accent-dark text-white flex items-center justify-center text-sm font-bold shrink-0 flex-shrink-0"
+                      className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/25 bg-accent-dark text-sm font-bold text-white"
                     >
                       {step.step}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-semibold text-text-main tracking-tight">
+                      <h3 className="mt-0.5 text-lg font-semibold text-text-main tracking-tight sm:text-[1.125rem]">
                         {step.title}
                       </h3>
-                      <p className="mt-2 text-sm text-text-light leading-[1.62]">
+                      <p className="mt-2.5 text-sm text-text-light leading-[1.62] sm:mt-2">
                         {step.description}
                       </p>
                     </div>
