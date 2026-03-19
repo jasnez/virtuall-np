@@ -22,3 +22,15 @@ body {
   color: #1a1a2e;
   line-height: 1.7;
 }
+
+/* Cross-browser form control reset (Safari, Firefox): avoid default shadows/radius.
+   Select excluded so native dropdown arrow remains visible. */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
