@@ -1,0 +1,27 @@
+{
+  "siteName": "VirtuALL NP",
+  "tagline": "High-signal content and research that turns complex ideas into clear decisions.",
+  "url": "https://virtuall-np.com",
+  "contact": {
+    "email": "office@virtuall-np.com",
+    "phone": "+381 63 8 712 091",
+    "address": {
+      "street": "Kragujevacka 54 37/5",
+      "city": "Novi Pazar",
+      "country": "Serbia",
+      "zip": "36300"
+    }
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/virtuall-np",
+    "x": "https://x.com/virtuall_np"
+  },
+  "logoUrl": "/og-image.jpg",
+  "openingHours": "Mo-Fr 09:00-17:00",
+  "seo": {
+    "title": "VirtuALL NP | Content, Research & AI Humanization",
+    "description": "VirtuALL NP delivers bespoke content, rigorous research, AI humanization, and LLM-optimized writing for brands that care about clarity and credibility.",
+    "ogTitle": "VirtuALL NP",
+    "ogDescription": "Bespoke content and research, AI humanization, and LLM-optimized writing—built for trust and performance."
+  }
+}

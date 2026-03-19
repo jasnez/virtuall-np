@@ -1,0 +1,94 @@
+[
+  {
+    "id": "svc_bespoke_content",
+    "slug": "bespoke-content",
+    "title": "Bespoke Content",
+    "icon": "pen-line",
+    "positioning": "Custom-written content that sounds like you, persuades like a strategist, and reads like a human—because it is.",
+    "shortDescription": "Original, brand-aligned content for websites, landing pages, blogs, and product narratives.",
+    "fullDescription": "Bespoke Content is for teams that want writing with a point of view—built around your audience, your offer, and your brand voice. We combine clear messaging, conversion-first structure, and editorial quality so your content earns attention and drives action without sounding templated.",
+    "deliverables": [
+      "Landing pages and website copy",
+      "Blog posts and thought leadership",
+      "Product and feature pages",
+      "Email sequences and newsletters",
+      "Brand voice and messaging guidelines"
+    ],
+    "useCases": [
+      "Launching a new product or service",
+      "Refreshing outdated site copy",
+      "Building topical authority with consistent publishing",
+      "Improving conversion rates with clearer messaging"
+    ],
+    "ctaText": "Request Bespoke Content"
+  },
+  {
+    "id": "svc_research",
+    "slug": "research",
+    "title": "Research",
+    "icon": "search",
+    "positioning": "Research that reduces uncertainty—so you can write, ship, and sell with confidence.",
+    "shortDescription": "Deep research packages that turn messy inputs into crisp insights and usable briefs.",
+    "fullDescription": "Research is the foundation for content that stands out. We gather and synthesize sources, customer signals, competitor messaging, and market context to produce a clear narrative: what matters, what to say, and how to support it. You get artifacts you can reuse—briefs, outlines, citations, and positioning angles.",
+    "deliverables": [
+      "Competitor and messaging analysis",
+      "Audience pains, jobs-to-be-done, and objections",
+      "Source-backed claims and citations",
+      "Content briefs and outlines",
+      "Positioning angles and differentiation"
+    ],
+    "useCases": [
+      "Entering a new market",
+      "Creating authoritative content in a regulated space",
+      "Building a messaging framework for a website rewrite",
+      "Preparing research for product marketing"
+    ],
+    "ctaText": "Start a Research Sprint"
+  },
+  {
+    "id": "svc_ai_humanization",
+    "slug": "ai-humanization",
+    "title": "AI Humanization",
+    "icon": "sparkles",
+    "positioning": "Make AI drafts feel human: consistent voice, better rhythm, and sharper meaning—without losing speed.",
+    "shortDescription": "Rewrite and edit AI-assisted drafts into natural, credible, on-brand content.",
+    "fullDescription": "AI Humanization transforms AI-generated text into content that reads as intentional and trustworthy. We fix tone, logic, repetition, and specificity; add nuance where needed; and make the final copy match your brand voice. You’ll keep the efficiency of AI while delivering a human-grade output.",
+    "deliverables": [
+      "Voice alignment and tone correction",
+      "Structural edits and clarity improvements",
+      "Fact-check notes and claim tightening",
+      "Anti-fluff rewrites with specificity",
+      "Optional style guide for future drafts"
+    ],
+    "useCases": [
+      "Turning AI drafts into publish-ready content",
+      "Standardizing voice across multiple authors",
+      "Reducing generic-sounding marketing copy",
+      "Improving trust for high-stakes pages"
+    ],
+    "ctaText": "Humanize My Draft"
+  },
+  {
+    "id": "svc_llm_optimized",
+    "slug": "llm-optimized",
+    "title": "LLM-Optimized",
+    "icon": "bot",
+    "positioning": "Content designed to be discoverable, quotable, and summarizable—so it performs in AI-assisted search.",
+    "shortDescription": "Structure and language patterns that help LLMs extract accurate answers from your site.",
+    "fullDescription": "LLM-Optimized content goes beyond keywords. We craft pages with strong information architecture, explicit definitions, scannable sections, and clear entity relationships so models can reliably understand and reference your content. The goal is simple: more accurate brand mentions, better AI summaries, and fewer hallucinated interpretations.",
+    "deliverables": [
+      "LLM-friendly page structure and headings",
+      "Definitions, FAQs, and canonical phrasing",
+      "Entity and terminology consistency",
+      "Internal link recommendations",
+      "Update plan for existing pages"
+    ],
+    "useCases": [
+      "Improving performance in AI search experiences",
+      "Making product and service pages easier to summarize",
+      "Reducing ambiguity for technical offerings",
+      "Updating legacy content for modern discovery"
+    ],
+    "ctaText": "Optimize for LLM Search"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "home": {
+    "title": "VirtuALL NP | Content, Research & AI Humanization",
+    "description": "Bespoke content, rigorous research, AI humanization, and LLM-optimized writing for brands that value clarity and credibility.",
+    "ogTitle": "VirtuALL NP",
+    "ogDescription": "High-signal content and research—crafted for trust and designed to perform in modern search."
+  },
+  "services": {
+    "title": "Services | VirtuALL NP",
+    "description": "Explore VirtuALL NP services: Bespoke Content, Research, AI Humanization, and LLM-Optimized writing.",
+    "ogTitle": "VirtuALL NP Services",
+    "ogDescription": "Custom content, research sprints, AI humanization, and LLM-ready pages—built around your goals."
+  },
+  "pricing": {
+    "title": "Pricing | VirtuALL NP",
+    "description": "Transparent packages, add-ons, retainers, and project-based options for content, research, and optimization.",
+    "ogTitle": "VirtuALL NP Pricing",
+    "ogDescription": "Choose a package or project scope that fits your timeline, depth, and volume."
+  },
+  "process": {
+    "title": "Process | VirtuALL NP",
+    "description": "See how VirtuALL NP works—from discovery and research to drafting, refinement, and delivery.",
+    "ogTitle": "The VirtuALL NP Process",
+    "ogDescription": "A clear, repeatable workflow that delivers quality without surprises."
+  },
+  "faq": {
+    "title": "FAQ | VirtuALL NP",
+    "description": "Answers to common questions about VirtuALL NP services, research, AI humanization, revisions, and retainers.",
+    "ogTitle": "VirtuALL NP FAQ",
+    "ogDescription": "Everything you need to know before starting—clear answers, no fluff."
+  },
+  "contact": {
+    "title": "Contact | VirtuALL NP",
+    "description": "Get in touch with VirtuALL NP to discuss your content, research, AI humanization, or LLM optimization needs.",
+    "ogTitle": "Contact VirtuALL NP",
+    "ogDescription": "Tell us what you’re building. We’ll recommend the best next step."
+  }
+}

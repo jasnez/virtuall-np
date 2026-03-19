@@ -12,6 +12,15 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+
+    // This project contains a fairly strict rule-set for production code.
+    // Test/e2e files frequently use `jest.mock` patterns that rely on
+    // `require()` and `any`, which would otherwise block CI.
+    "e2e/**",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/jest.config.*",
+    "**/playwright.config.*",
   ]),
 ]);
 

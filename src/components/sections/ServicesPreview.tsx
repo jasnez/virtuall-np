@@ -1,0 +1,68 @@
+import React from "react";
+import { Bot, PenLine, Search, Sparkles } from "lucide-react";
+
+import services from "@/content/services.json";
+import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { AnimateIn, StaggerChildren } from "@/components/ui/AnimateIn";
+
+const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> =
+  {
+    "pen-line": PenLine,
+    search: Search,
+    sparkles: Sparkles,
+    bot: Bot,
+  };
+
+export function ServicesPreview() {
+  return (
+    <AnimateIn delay={0}>
+      <SectionWrapper bgColor="alt" padding="md">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-semibold text-text-main">
+            What We Do
+          </h2>
+          <p className="mt-4 text-text-light">
+            A quick look at how we help teams turn complex, high-stakes work into
+            clear, credible content and research.
+          </p>
+        </div>
+
+        <div
+          data-testid="services-grid"
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <StaggerChildren className="contents" stagger={0.1}>
+            {services.map((svc) => {
+              const Icon = iconMap[svc.icon as keyof typeof iconMap] ?? Sparkles;
+
+              return (
+                <a
+                  key={svc.id}
+                  data-testid="service-card"
+                  href={`/services#${svc.slug}`}
+                  className="group rounded-xl bg-white/80 hover:bg-white shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col"
+                >
+                  <Icon
+                    className="w-12 h-12 text-accent mb-4"
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                  <h3 className="font-semibold text-lg text-text-main">
+                    {svc.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-text-light">
+                    {svc.shortDescription}
+                  </p>
+                  <span className="mt-4 inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                    Learn More →
+                  </span>
+                </a>
+              );
+            })}
+          </StaggerChildren>
+        </div>
+      </SectionWrapper>
+    </AnimateIn>
+  );
+}
+

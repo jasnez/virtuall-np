@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "title": "Discovery",
+    "description": "We align on goals, audience, constraints, and what success looks like. You share inputs; we ask the sharp questions.",
+    "icon": "clipboard-list"
+  },
+  {
+    "step": 2,
+    "title": "Research & Strategy",
+    "description": "We synthesize sources, competitor context, and key objections to build a clear angle and structure for the deliverable.",
+    "icon": "search"
+  },
+  {
+    "step": 3,
+    "title": "Drafting",
+    "description": "We write the first version with your voice, your differentiators, and a conversion-first narrative—no fluff.",
+    "icon": "pen-line"
+  },
+  {
+    "step": 4,
+    "title": "Refinement",
+    "description": "We edit for clarity, credibility, and flow. We tighten claims, improve scannability, and apply LLM-friendly structure when relevant.",
+    "icon": "sliders"
+  },
+  {
+    "step": 5,
+    "title": "Delivery & Support",
+    "description": "You receive final files plus implementation notes. We support you through revisions and handoff so you can publish confidently.",
+    "icon": "rocket"
+  }
+]

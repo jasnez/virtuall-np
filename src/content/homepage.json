@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "headline": "Content and research built for trust—and built to perform.",
+    "subheadline": "VirtuALL NP helps teams turn complex offers into clear messaging, credible narratives, and LLM-ready pages that get understood and chosen.",
+    "primaryCtaText": "Get a Quote",
+    "secondaryCtaText": "View Services"
+  },
+  "valueProps": [
+    {
+      "title": "Clarity over buzzwords",
+      "description": "We remove ambiguity, tighten claims, and structure content so your audience understands the value fast.",
+      "icon": "sparkle"
+    },
+    {
+      "title": "Research-backed credibility",
+      "description": "We use real sources and real signals—so your content earns trust instead of borrowing it.",
+      "icon": "search"
+    },
+    {
+      "title": "Human voice, consistent tone",
+      "description": "Whether the first draft is yours or AI-assisted, the final reads like a confident human wrote it on purpose.",
+      "icon": "message-circle"
+    },
+    {
+      "title": "LLM-ready information design",
+      "description": "We craft pages that are easy to scan, summarize, and reference—so you show up in modern AI search experiences.",
+      "icon": "bot"
+    }
+  ],
+  "trust": {
+    "headline": "Built for teams who can’t afford generic.",
+    "narrative": [
+      "If your product is sophisticated, generic content doesn’t just underperform—it misrepresents you.",
+      "We combine editorial quality with strategic structure so your message stays accurate, persuasive, and easy to understand.",
+      "The result is content that supports sales conversations, strengthens positioning, and remains credible over time."
+    ]
+  },
+  "cta": {
+    "headline": "Ready to make your messaging unmistakably clear?",
+    "description": "Tell us what you’re building and what you need. We’ll recommend the fastest path to high-quality content that fits your goals and timeline.",
+    "ctaText": "Contact VirtuALL NP"
+  }
+}

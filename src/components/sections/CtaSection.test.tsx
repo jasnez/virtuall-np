@@ -1,0 +1,75 @@
+import React from "react";
+import { render, screen } from "@testing-library/react";
+
+jest.mock("@/components/ui/AnimateIn", () => {
+  const React = require("react");
+  return {
+    __esModule: true,
+    AnimateIn: ({
+      children,
+      className,
+    }: {
+      children: React.ReactNode;
+      className?: string;
+    }) => (
+      <div data-testid="animatein" className={className}>
+        {children}
+      </div>
+    ),
+  };
+});
+
+import { CtaSection } from "./CtaSection";
+
+describe("CtaSection", () => {
+  it("renders inside a navy SectionWrapper with centered white text and default CTA", () => {
+    render(
+      <CtaSection
+        title="Ready to get started?"
+        description="Tell us what you're building and we'll follow up with next steps."
+      />,
+    );
+
+    const section = screen.getByTestId("section-wrapper");
+    expect(section).toHaveStyle({ backgroundColor: "#1B3A5C" });
+
+    const inner = screen.getByTestId("section-inner");
+    expect(inner.firstChild).toHaveClass("text-center", "text-white");
+
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Ready to get started?",
+      }),
+    ).toHaveClass("text-3xl", "font-bold");
+
+    const desc = screen.getByText(
+      "Tell us what you're building and we'll follow up with next steps.",
+    );
+    expect(desc).toHaveClass(
+      "text-white/80",
+      "mt-4",
+      "max-w-xl",
+      "mx-auto",
+    );
+
+    const button = screen.getByRole("link", { name: "Start a Project" });
+    expect(button).toHaveAttribute("href", "/contact");
+    expect(button).toHaveClass("mt-8");
+  });
+
+  it("supports overriding CTA label and href", () => {
+    render(
+      <CtaSection
+        title="Custom CTA"
+        description="Something custom."
+        ctaLabel="Talk to Sales"
+        ctaHref="/contact/sales"
+      />,
+    );
+
+    const button = screen.getByRole("link", { name: "Talk to Sales" });
+    expect(button).toHaveAttribute("href", "/contact/sales");
+  });
+});
+
