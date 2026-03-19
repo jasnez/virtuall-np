@@ -17,13 +17,18 @@ const budgetEnum = z.enum([
   "5000-plus",
 ]);
 
+const MAX_NAME = 200;
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 10_000;
+const MAX_WEBSITE = 500;
+
 const contactSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
+  name: z.string().min(2).max(MAX_NAME),
+  email: z.string().email().max(MAX_EMAIL),
   serviceInterest: serviceEnum,
   budget: budgetEnum.optional(),
-  message: z.string().min(10),
-  website: z.string().optional(),
+  message: z.string().min(10).max(MAX_MESSAGE),
+  website: z.string().max(MAX_WEBSITE).optional(),
 });
 
 type ContactPayload = z.infer<typeof contactSchema>;
@@ -69,6 +74,14 @@ function stripHtmlTags(value: string): string {
 }
 
 export async function POST(req: Request) {
+  const contentType = req.headers.get("content-type") ?? "";
+  if (!contentType.replace(/\s/g, "").toLowerCase().startsWith("application/json")) {
+    return NextResponse.json(
+      { success: false, error: "Content-Type must be application/json." },
+      { status: 415 },
+    );
+  }
+
   const ip = getClientIp(req);
 
   if (isRateLimited(ip)) {
@@ -148,7 +161,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       to: toEmail,
       from: "VirtuALL NP Website <noreply@virtuall-np.com>",
-      subject: `New Inquiry from ${data.name}`,
+      subject: `New Inquiry from ${safeName}`,
       html,
     });
 

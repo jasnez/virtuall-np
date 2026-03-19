@@ -30,13 +30,27 @@ const budgetEnum = z.enum([
   "5000-plus",
 ]);
 
+const MAX_NAME = 200;
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 10_000;
+const MAX_WEBSITE = 500;
+
 const contactSchema = z.object({
-  name: z.string().min(2, "Please enter your name"),
-  email: z.string().email("Please enter a valid email"),
+  name: z
+    .string()
+    .min(2, "Please enter your name")
+    .max(MAX_NAME, "Name is too long"),
+  email: z
+    .string()
+    .email("Please enter a valid email")
+    .max(MAX_EMAIL, "Email is too long"),
   serviceInterest: serviceEnum,
   budget: budgetEnum.optional(),
-  message: z.string().min(10, "Please tell us a bit more about your project"),
-  website: z.string().optional(),
+  message: z
+    .string()
+    .min(10, "Please tell us a bit more about your project")
+    .max(MAX_MESSAGE, "Message is too long"),
+  website: z.string().max(MAX_WEBSITE).optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;

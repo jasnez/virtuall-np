@@ -44,9 +44,13 @@ describe("POST /api/contact", () => {
     process.env = originalEnv;
   });
 
-  function createRequest(body: unknown, ip = "127.0.0.1") {
+  function createRequest(
+    body: unknown,
+    ip = "127.0.0.1",
+    contentType = "application/json",
+  ) {
     const headers = new Map<string, string>();
-    headers.set("content-type", "application/json");
+    headers.set("content-type", contentType);
     headers.set("x-forwarded-for", ip);
 
     const req = {
@@ -98,6 +102,22 @@ describe("POST /api/contact", () => {
     expect(__sendMock).not.toHaveBeenCalled();
   });
 
+  it("returns 415 when Content-Type is not application/json", async () => {
+    const body = {
+      name: "John Doe",
+      email: "john@example.com",
+      serviceInterest: "research",
+      message: "Valid message here.",
+      website: "",
+    };
+
+    const res = await POST(createRequest(body, "127.0.0.1", "text/plain"));
+    expect(res.status).toBe(415);
+    const json = await res.json();
+    expect(json.success).toBe(false);
+    expect(json.error).toContain("application/json");
+  });
+
   it("returns 400 when validation fails", async () => {
     const body = {
       name: "J",
@@ -112,6 +132,21 @@ describe("POST /api/contact", () => {
     const json = await res.json();
     expect(json.success).toBe(false);
     expect(json.error).toBeDefined();
+  });
+
+  it("returns 400 when message exceeds max length", async () => {
+    const body = {
+      name: "John Doe",
+      email: "john@example.com",
+      serviceInterest: "research",
+      message: "a".repeat(10_001),
+      website: "",
+    };
+
+    const res = await POST(createRequest(body, "127.0.0.2"));
+    expect(res.status).toBe(400);
+    const json = await res.json();
+    expect(json.success).toBe(false);
   });
 
   it("enforces rate limiting per IP", async () => {
@@ -159,6 +194,26 @@ describe("POST /api/contact", () => {
     expect(payload.html).toContain("Hello world message");
     expect(payload.html).not.toContain("<b>John Doe</b>");
     expect(payload.html).toContain("John Doe");
+  });
+
+  it("sanitizes XSS payload in message (img onerror)", async () => {
+    const body = {
+      name: "Test User",
+      email: "test@example.com",
+      serviceInterest: "research",
+      message: '<img src=x onerror=alert(1)>',
+      website: "",
+    };
+
+    const res = await POST(createRequest(body, "203.0.113.99"));
+    expect(res.status).toBe(200);
+
+    const { __sendMock } = jest.requireMock("resend");
+    expect(__sendMock).toHaveBeenCalledTimes(1);
+    const payload = __sendMock.mock.calls[0][0];
+    expect(payload.html).not.toMatch(/onerror\s*=/i);
+    expect(payload.html).not.toContain("<img");
+    expect(payload.subject).not.toMatch(/onerror|alert/i);
   });
 });
 

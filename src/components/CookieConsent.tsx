@@ -21,9 +21,12 @@ function writeCookie(name: string, value: string) {
   if (typeof document === "undefined") return;
   // 1 year
   const maxAge = 60 * 60 * 24 * 365;
+  const secure =
+    typeof window !== "undefined" &&
+    (window.location.protocol === "https:" || window.location.hostname === "localhost");
   document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
     value,
-  )}; path=/; max-age=${maxAge}; samesite=lax`;
+  )}; path=/; max-age=${maxAge}; samesite=lax${secure ? "; secure" : ""}`;
 }
 
 function getStoredConsent(): ConsentValue | null {
