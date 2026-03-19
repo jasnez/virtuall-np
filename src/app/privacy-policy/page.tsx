@@ -48,9 +48,14 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           <strong>Data controller:</strong> VirtuALL NP<br />
-          <strong>Address:</strong> Novi Pazar, Serbia<br />
+          <strong>Address:</strong> {siteConfig.contact.address.street},{" "}
+          {siteConfig.contact.address.zip} {siteConfig.contact.address.city},{" "}
+          {siteConfig.contact.address.country}
+          <br />
           <strong>Email:</strong>{" "}
-          <a href="mailto:office@virtuall-np.com">office@virtuall-np.com</a>
+          <a href={`mailto:${siteConfig.contact.email}`}>
+            {siteConfig.contact.email}
+          </a>
         </p>
 
         <h2>Data We Collect</h2>
@@ -139,7 +144,10 @@ export default function PrivacyPolicyPage() {
         <h2>Contact Us</h2>
         <p>
           For privacy questions or requests, email{" "}
-          <a href="mailto:office@virtuall-np.com">office@virtuall-np.com</a>.
+          <a href={`mailto:${siteConfig.contact.email}`}>
+            {siteConfig.contact.email}
+          </a>
+          .
         </p>
       </div>
     </main>

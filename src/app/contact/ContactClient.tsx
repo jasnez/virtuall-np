@@ -303,8 +303,9 @@ export default function ContactClient() {
                   focusable="false"
                 />
                 <div>
-                  <p className="text-sm font-medium text-text-main">Location</p>
+                  <p className="text-sm font-medium text-text-main">Address</p>
                   <p className="text-sm text-text-light">
+                    {siteConfig.contact.address.street}, {siteConfig.contact.address.zip}{" "}
                     {siteConfig.contact.address.city}, {siteConfig.contact.address.country}
                   </p>
                 </div>
