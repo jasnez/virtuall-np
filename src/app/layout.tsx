@@ -17,6 +17,8 @@ const inter = Inter({
   display: "swap",
 });
 
+const ogImageUrl = "/opengraph-image";
+
 export const metadata: Metadata = {
   title: {
     default: "VirtuALL NP",
@@ -24,12 +26,15 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.seo.description,
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     url: siteConfig.url,
     siteName: siteConfig.siteName,
     images: [
       {
-        url: "/og-image.jpg",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: siteConfig.siteName,
@@ -38,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.jpg"],
+    images: [ogImageUrl],
   },
 };
 

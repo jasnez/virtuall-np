@@ -3,7 +3,7 @@ import pageMetadata from "@/content/metadata.json";
 import siteConfig from "@/content/site-config.json";
 import HowWeWorkClient from "./HowWeWorkClient";
 
-const ogImageUrl = "/og-image.jpg";
+const ogImageUrl = "/opengraph-image";
 
 export const metadata: Metadata = {
   title: pageMetadata.process.title,

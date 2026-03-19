@@ -18,7 +18,7 @@ import contactPage, {
 } from "./contact/page";
 
 const baseUrl = siteConfig.url;
-const ogImageUrl = "/og-image.jpg";
+const ogImageUrl = "/opengraph-image";
 
 type PageKey = keyof typeof metadataJson;
 

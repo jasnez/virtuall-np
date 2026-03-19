@@ -29,7 +29,7 @@ function buildProviderOrg() {
 }
 
 export function generateJsonLd(page: StructuredDataPage) {
-  const logoUrl = new URL(siteConfig.logoUrl ?? "/og-image.jpg", siteConfig.url).toString();
+  const logoUrl = new URL(siteConfig.logoUrl ?? "/opengraph-image", siteConfig.url).toString();
   const openingHours = siteConfig.openingHours ?? "Mo-Fr 09:00-17:00";
 
   const organization = {

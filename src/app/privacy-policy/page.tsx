@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import siteConfig from "@/content/site-config.json";
 
-const ogImageUrl = "/og-image.jpg";
+const ogImageUrl = "/opengraph-image";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import StructuredData from "@/components/StructuredData";
 
-const ogImageUrl = "/og-image.jpg";
+const ogImageUrl = "/opengraph-image";
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> =
   {

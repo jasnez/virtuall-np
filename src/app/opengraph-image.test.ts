@@ -1,17 +1,9 @@
-import path from "path";
-import fs from "fs";
-
 jest.mock("next/og", () => ({
   // We only validate exports like `size` in this unit test.
   ImageResponse: jest.fn(),
 }));
 
 describe("OpenGraph image assets", () => {
-  it("has static image in public/og-image.jpg", () => {
-    const imgPath = path.resolve(__dirname, "../../public/og-image.jpg");
-    expect(fs.existsSync(imgPath)).toBe(true);
-  });
-
   it("opengraph-image route exports size 1200x630", () => {
     // eslint-disable-next-line global-require
     const mod = require("./opengraph-image");

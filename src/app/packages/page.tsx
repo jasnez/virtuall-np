@@ -11,7 +11,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CtaSection } from "@/components/sections/CtaSection";
 import StructuredData from "@/components/StructuredData";
 
-const ogImageUrl = "/og-image.jpg";
+const ogImageUrl = "/opengraph-image";
 
 export const metadata: Metadata = {
   title: pageMetadata.pricing.title,

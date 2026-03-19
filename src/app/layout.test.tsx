@@ -85,8 +85,8 @@ describe("RootLayout", () => {
       }),
     );
 
-    expect(metadata.openGraph?.images?.[0]?.url).toBe("/og-image.jpg");
-    expect(metadata.twitter?.images?.[0]).toBe("/og-image.jpg");
+    expect(metadata.openGraph?.images?.[0]?.url).toBe("/opengraph-image");
+    expect(metadata.twitter?.images?.[0]).toBe("/opengraph-image");
     expect(metadata.twitter).toEqual(
       expect.objectContaining({ card: "summary_large_image" }),
     );
