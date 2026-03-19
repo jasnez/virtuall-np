@@ -21,9 +21,9 @@ export function Footer() {
   return (
     <footer data-testid="site-footer" className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-16 sm:py-20">
           <div>
-            <div className="text-xl font-bold">{siteConfig.siteName}</div>
+            <div className="text-xl font-bold tracking-tight">{siteConfig.siteName}</div>
             <p className="mt-4 text-white/75 leading-relaxed max-w-sm">
               High-signal content and research that turns complex ideas into clear
               decisions. Built for brands that care about clarity and credibility.
@@ -31,11 +31,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">Quick Links</h3>
-            <ul className="mt-4 space-y-3">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">
+              Quick Links
+            </h3>
+            <ul className="mt-4 space-y-2.5">
               {quickLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={linkClass}>
+                  <Link href={item.href} className={`${linkClass} inline-block py-0.5`}>
                     {item.label}
                   </Link>
                 </li>
@@ -44,28 +46,30 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">Contact</h3>
-            <ul className="mt-4 space-y-3">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider">
+              Contact
+            </h3>
+            <ul className="mt-4 space-y-2.5">
               <li>
-                <a className={linkClass} href={`mailto:${email}`}>
+                <a className={`${linkClass} inline-block py-0.5`} href={`mailto:${email}`}>
                   {email}
                 </a>
               </li>
               <li>
-                <a className={linkClass} href={telHref}>
+                <a className={`${linkClass} inline-block py-0.5`} href={telHref}>
                   {phone}
                 </a>
               </li>
-              <li className="text-white/70">{addressLine}</li>
+              <li className="text-white/70 py-0.5">{addressLine}</li>
             </ul>
           </div>
         </div>
 
         <hr className="border-white/15" />
 
-        <div className="text-center text-white/50 text-sm py-8">
+        <div className="text-center text-white/50 text-sm py-6 sm:py-8">
           <span>© 2026 VirtuALL NP. All rights reserved.</span>{" "}
-          <Link href="/privacy-policy" className={`${linkClass} inline-block`}>
+          <Link href="/privacy-policy" className={`${linkClass} inline-block mt-px`}>
             Privacy Policy
           </Link>
           .
