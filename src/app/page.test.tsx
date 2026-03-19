@@ -74,11 +74,11 @@ describe("Home page", () => {
       // text readability: no tiny text sizes
       expect(document.querySelector(".text-xs")).toBeNull();
 
-      // hero text width constraint
+      // hero text width constraint (560–620px band)
       const hero = screen.getByTestId("hero");
-      const heroTextWrap = hero.querySelector(".max-w-2xl");
-      expect(heroTextWrap).not.toBeNull();
-      expect(heroTextWrap).toHaveClass("max-w-2xl");
+      const heroContent = hero.querySelector("[data-testid='hero-content']");
+      expect(heroContent).not.toBeNull();
+      expect(heroContent).toHaveClass("max-w-[600px]");
 
       // value props should stack on mobile
       const valueGrid = screen.getByTestId("value-props-grid");

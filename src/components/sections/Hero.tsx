@@ -12,7 +12,7 @@ export function Hero({ disableAnimation = false }: HeroProps) {
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <section
         data-testid="hero"
-        className="relative w-full min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary to-[#0F2440] overflow-hidden"
+        className="relative w-full min-h-[min(88vh,56rem)] flex items-center bg-gradient-to-br from-primary to-[#0F2440] overflow-hidden"
       >
         <div
           aria-hidden="true"
@@ -44,20 +44,25 @@ export function Hero({ disableAnimation = false }: HeroProps) {
           </svg>
         </div>
 
-        <div className={`relative py-24 w-full ${PAGE_CONTAINER_X}`}>
-          <div className="mx-auto max-w-2xl text-center text-white">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] sm:leading-[1.1] tracking-tight text-balance">
+        <div
+          className={`relative z-10 w-full py-24 md:py-28 lg:py-32 ${PAGE_CONTAINER_X}`}
+        >
+          <div
+            data-testid="hero-content"
+            className="w-full max-w-[600px] text-white text-left max-lg:mx-auto max-lg:text-center"
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-6xl font-bold leading-[1.03] sm:leading-[1.05] lg:leading-[1.06] tracking-[-0.02em] text-balance mb-5">
               {homepage.hero.headline}
             </h1>
 
             <AnimateIn delay={0.2} disableAnimation={disableAnimation}>
-              <p className="text-lg md:text-xl text-white/[0.92] mt-8 max-w-xl mx-auto leading-[1.62]">
+              <p className="text-base sm:text-lg text-white/[0.88] leading-[1.65] mb-8">
                 {homepage.hero.subheadline}
               </p>
             </AnimateIn>
 
             <AnimateIn delay={0.4} disableAnimation={disableAnimation}>
-              <div className="flex flex-wrap gap-4 sm:gap-6 justify-center mt-12">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 max-lg:justify-center">
                 <Button
                   href="/services"
                   className="bg-white text-[#0F2440] hover:bg-white/95 font-semibold"

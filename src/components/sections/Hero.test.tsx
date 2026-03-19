@@ -38,10 +38,9 @@ describe("Hero", () => {
     const section = screen.getByTestId("hero");
     expect(section).toHaveClass(
       "w-full",
-      "min-h-[80vh]",
+      "min-h-[min(88vh,56rem)]",
       "flex",
       "items-center",
-      "justify-center",
       "bg-gradient-to-br",
       "from-primary",
       "to-[#0F2440]",
@@ -58,21 +57,24 @@ describe("Hero", () => {
     expect(h1).toHaveClass(
       "text-4xl",
       "sm:text-5xl",
-      "lg:text-6xl",
+      "lg:text-[2.75rem]",
       "font-bold",
-      "leading-[1.08]",
+      "leading-[1.03]",
       "text-balance",
+      "mb-5",
     );
 
     const sub = screen.getByText(homepage.hero.subheadline);
     expect(sub).toHaveClass(
-      "text-lg",
-      "md:text-xl",
-      "text-white/[0.92]",
-      "mt-8",
-      "max-w-xl",
-      "mx-auto",
+      "text-base",
+      "sm:text-lg",
+      "text-white/[0.88]",
+      "mb-8",
+      "leading-[1.65]",
     );
+
+    const heroContent = screen.getByTestId("hero-content");
+    expect(heroContent).toHaveClass("max-w-[600px]");
   });
 
   it("renders CTA links with correct hrefs", () => {
