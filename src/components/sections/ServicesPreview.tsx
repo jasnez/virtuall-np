@@ -9,7 +9,7 @@ import {
   cardDescriptionClass,
   cardHover,
   cardIconClass,
-  cardPadding,
+  cardPadding24,
   cardTitleClass,
 } from "@/lib/card-surface";
 
@@ -32,10 +32,10 @@ export function ServicesPreview({
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="alt" padding="lg">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance mb-4">
+          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance mb-8">
             What We Do
           </h2>
-          <p className="text-text-light leading-[1.62] mb-8">
+          <p className="text-text-light leading-[1.62]">
             A quick look at how we help teams turn complex, high-stakes work into
             clear, credible content and research.
           </p>
@@ -43,7 +43,7 @@ export function ServicesPreview({
 
         <div
           data-testid="services-grid"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 items-stretch"
         >
           <StaggerChildren
             className="contents"
@@ -58,7 +58,7 @@ export function ServicesPreview({
                   key={svc.id}
                   data-testid="service-card"
                   href={`/services#${svc.slug}`}
-                  className={`group flex flex-col h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${cardChrome} ${cardPadding.md} ${cardHover}`}
+                  className={`group flex h-full cursor-pointer flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${cardChrome} ${cardPadding24} ${cardHover}`}
                 >
                   <Icon
                     className={cardIconClass}
@@ -66,8 +66,10 @@ export function ServicesPreview({
                     focusable="false"
                   />
                   <h3 className={cardTitleClass}>{svc.title}</h3>
-                  <p className={cardDescriptionClass}>{svc.shortDescription}</p>
-                  <span className="mt-5 inline-flex items-center text-accent group-hover:text-accent-dark font-medium text-sm transition-colors duration-200 ease-out">
+                  <p className={`${cardDescriptionClass} flex-1`}>
+                    {svc.shortDescription}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-[color,transform] duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-accent-dark">
                     Learn More →
                   </span>
                 </a>
