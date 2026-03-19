@@ -26,18 +26,15 @@ describe("SectionWrapper", () => {
 
   it("applies default padding (lg)", () => {
     render(<SectionWrapper>Y</SectionWrapper>);
-    expect(screen.getByTestId("section-wrapper")).toHaveClass(
-      "py-20",
-      "lg:py-24",
-    );
+    expect(screen.getByTestId("section-wrapper")).toHaveClass("py-20");
   });
 
   it("applies sm and md padding classes", () => {
     const { rerender } = render(<SectionWrapper padding="sm">A</SectionWrapper>);
-    expect(screen.getByTestId("section-wrapper")).toHaveClass("py-12");
+    expect(screen.getByTestId("section-wrapper")).toHaveClass("py-16");
 
     rerender(<SectionWrapper padding="md">B</SectionWrapper>);
-    expect(screen.getByTestId("section-wrapper")).toHaveClass("py-16");
+    expect(screen.getByTestId("section-wrapper")).toHaveClass("py-20");
   });
 
   it("applies background colors via inline style", () => {
@@ -63,11 +60,11 @@ describe("SectionWrapper", () => {
     render(<SectionWrapper>Inner</SectionWrapper>);
     const container = screen.getByTestId("section-inner");
     expect(container).toHaveClass(
-      "max-w-7xl",
+      "max-w-page",
       "mx-auto",
       "px-4",
-      "sm:px-6",
-      "lg:px-8",
+      "sm:px-5",
+      "md:px-6",
     );
   });
 

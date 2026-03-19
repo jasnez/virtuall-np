@@ -3,6 +3,7 @@
 import React from "react";
 
 import { Button } from "@/components/ui/Button";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 import { initGA4 } from "@/lib/ga4";
 
 const CONSENT_KEY = "cookie-consent";
@@ -81,8 +82,8 @@ export function CookieConsent() {
     <div className="fixed bottom-0 left-0 right-0 z-[60]">
       <div
         className={[
-          "mx-auto max-w-7xl",
-          "bg-white border-t border-gray-200/90 p-4",
+          PAGE_CONTAINER_X,
+          "bg-white border-t border-gray-200/90 py-4",
           "transition-transform duration-200 ease-out",
           slideIn ? "translate-y-0" : "translate-y-full",
         ].join(" ")}

@@ -10,6 +10,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CtaSection } from "@/components/sections/CtaSection";
 import homepage from "@/content/homepage.json";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 function FaqAccordion() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
@@ -23,7 +24,7 @@ function FaqAccordion() {
   }, [openIndex]);
 
   return (
-    <div className="mt-8 max-w-3xl mx-auto divide-y divide-gray-200">
+    <div className="mt-8 md:mt-10 max-w-3xl mx-auto divide-y divide-gray-200">
       {faq.map((item, index) => {
         const isOpen = openIndex === index;
         const buttonId = `faq-button-${index}`;
@@ -77,24 +78,26 @@ export default function HowWeWorkClient() {
   return (
     <main className="min-h-screen">
       <AnimateIn delay={0}>
-        <section className="py-24 md:py-32 bg-gradient-to-br from-primary to-[#0F2440] text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold">How We Work</h1>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-              A clear, source-backed process from discovery to delivery—so you
-              always know what&apos;s happening next.
-            </p>
+        <section className="py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
+          <div className={PAGE_CONTAINER_X}>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold">How We Work</h1>
+              <p className="mt-4 text-white/80 max-w-2xl mx-auto">
+                A clear, source-backed process from discovery to delivery—so you
+                always know what&apos;s happening next.
+              </p>
+            </div>
           </div>
         </section>
       </AnimateIn>
 
       <AnimateIn delay={0}>
         <SectionWrapper bgColor="white" padding="lg">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-semibold text-text-main">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-text-main mb-4">
               Our Process
             </h2>
-            <p className="mt-3 text-text-light">
+            <p className="text-text-light mb-8">
               Five structured steps that keep projects moving while leaving room
               for thoughtful collaboration.
             </p>
@@ -136,7 +139,7 @@ export default function HowWeWorkClient() {
       <AnimateIn delay={0}>
         <SectionWrapper bgColor="alt" padding="lg">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-semibold text-text-main text-center">
+            <h2 className="text-3xl font-semibold text-text-main text-center mb-4">
               Frequently Asked Questions
             </h2>
             <FaqAccordion />

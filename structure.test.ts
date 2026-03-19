@@ -36,6 +36,7 @@ describe("project placeholder structure", () => {
       "src/lib/utils.ts",
       "src/lib/validations.ts",
       "src/lib/send-email.ts",
+      "src/lib/page-layout.ts",
 
       "src/types",
       "src/types/index.ts",

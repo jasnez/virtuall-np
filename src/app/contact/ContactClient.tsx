@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 import { Mail, MapPin, Phone } from "lucide-react";
 import siteConfig from "@/content/site-config.json";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 const serviceEnum = z.enum([
   "bespoke-content",
@@ -155,13 +156,15 @@ export default function ContactClient() {
   return (
     <main className="min-h-screen">
       <AnimateIn delay={0}>
-        <section className="py-24 md:py-32 bg-gradient-to-br from-primary to-[#0F2440] text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold">Contact</h1>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-              Tell us what you&apos;re building, where you need support, and any
-              timelines we should know about.
-            </p>
+        <section className="py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
+          <div className={PAGE_CONTAINER_X}>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold">Contact</h1>
+              <p className="mt-4 text-white/80 max-w-2xl mx-auto">
+                Tell us what you&apos;re building, where you need support, and any
+                timelines we should know about.
+              </p>
+            </div>
           </div>
         </section>
       </AnimateIn>
@@ -174,8 +177,10 @@ export default function ContactClient() {
               className="space-y-4"
               noValidate
             >
-            <h2 className="text-3xl font-semibold text-text-main">Get in Touch</h2>
-            <p className="mt-4 text-text-light">
+            <h2 className="text-3xl font-semibold text-text-main mb-4">
+              Get in Touch
+            </h2>
+            <p className="text-text-light mb-8">
               Share a bit about your product, goals, and constraints. We&apos;ll
               reply within 24 hours with next steps—or a few clarifying
               questions if needed.

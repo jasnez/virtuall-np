@@ -9,6 +9,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { Button } from "@/components/ui/Button";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import StructuredData from "@/components/StructuredData";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 const ogImageUrl = "/opengraph-image";
 
@@ -53,13 +54,15 @@ export default function ServicesPage() {
     <main className="min-h-screen">
       <StructuredData page="services" />
       <AnimateIn delay={0}>
-        <section className="py-24 md:py-32 bg-gradient-to-br from-primary to-[#0F2440] text-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-              Deep work, clear outcomes, and content that’s built to earn trust—
-              not just clicks.
-            </p>
+        <section className="py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
+          <div className={PAGE_CONTAINER_X}>
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+              <p className="mt-4 text-white/80 max-w-2xl mx-auto">
+                Deep work, clear outcomes, and content that’s built to earn trust—
+                not just clicks.
+              </p>
+            </div>
           </div>
         </section>
       </AnimateIn>
@@ -84,10 +87,10 @@ export default function ServicesPage() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
                 <div id={svc.slug}>
-                  <h2 className="text-3xl font-semibold text-text-main">
+                  <h2 className="text-3xl font-semibold text-text-main mb-4">
                     {svc.title}
                   </h2>
-                  <p className="mt-3 italic text-text-light">
+                  <p className="italic text-text-light">
                     {svc.positioning}
                   </p>
                   <p className="mt-4 text-text-light leading-relaxed">

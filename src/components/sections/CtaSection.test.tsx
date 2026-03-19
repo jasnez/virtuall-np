@@ -48,7 +48,7 @@ describe("CtaSection", () => {
     );
     expect(desc).toHaveClass(
       "text-white/90",
-      "mt-6",
+      "mb-8",
       "max-w-xl",
       "mx-auto",
     );

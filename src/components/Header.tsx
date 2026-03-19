@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 type NavItem = { label: string; href: string };
 
@@ -73,7 +74,9 @@ export function Header() {
             : "bg-white/95 border-gray-200/50",
         )}
       >
-        <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+        <div
+          className={`h-full flex items-center justify-between gap-6 ${PAGE_CONTAINER_X}`}
+        >
           <Link
             href="/"
             className="font-bold text-xl text-primary hover:text-primary-light transition-colors duration-200 tracking-tight shrink-0 py-2 -my-2"

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import siteConfig from "@/content/site-config.json";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -20,8 +21,8 @@ export function Footer() {
 
   return (
     <footer data-testid="site-footer" className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-16 sm:py-20">
+      <div className={`${PAGE_CONTAINER_X} pt-16`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           <div>
             <div className="text-xl font-bold tracking-tight">{siteConfig.siteName}</div>
             <p className="mt-4 text-white/80 leading-[1.62] max-w-sm">
@@ -67,7 +68,7 @@ export function Footer() {
 
         <hr className="border-white/15" />
 
-        <div className="text-center text-white/60 text-sm py-6 sm:py-8">
+        <div className="text-center text-white/60 text-sm py-8">
           <span>© 2026 VirtuALL NP. All rights reserved.</span>{" "}
           <Link href="/privacy-policy" className={`${linkClass} inline-block mt-px`}>
             Privacy Policy

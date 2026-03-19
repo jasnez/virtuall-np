@@ -21,14 +21,14 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
   return (
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="white" padding="lg">
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance mb-4">
             Why teams choose VirtuALL NP
           </h2>
         </div>
         <div
           data-testid="value-props-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch"
+          className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch"
         >
           <StaggerChildren
             className="contents"

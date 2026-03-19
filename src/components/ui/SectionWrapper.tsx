@@ -1,5 +1,7 @@
 import React from "react";
 
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
+
 export type SectionBgColor = "white" | "alt" | "navy";
 export type SectionPadding = "sm" | "md" | "lg";
 
@@ -22,9 +24,9 @@ const bgMap: Record<SectionBgColor, string> = {
 };
 
 const paddingMap: Record<SectionPadding, string> = {
-  sm: "py-12",
-  md: "py-16",
-  lg: "py-20 lg:py-24",
+  sm: "py-16",
+  md: "py-20",
+  lg: "py-20",
 };
 
 export function SectionWrapper({
@@ -43,7 +45,7 @@ export function SectionWrapper({
     >
       <div
         data-testid="section-inner"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className={PAGE_CONTAINER_X}
       >
         {children}
       </div>

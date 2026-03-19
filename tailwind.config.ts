@@ -10,6 +10,9 @@ const config: Config = {
       xl: "1280px",
     },
     extend: {
+      maxWidth: {
+        page: "1200px",
+      },
       colors: {
         primary: "#1B3A5C",
         "primary-light": "#2A4F7A",

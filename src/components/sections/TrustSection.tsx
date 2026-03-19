@@ -18,13 +18,15 @@ export function TrustSection({ disableAnimation = false }: TrustSectionProps) {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance">
-              Why Work With Us
-            </h2>
-            <div className="space-y-4 text-text-light leading-[1.62]">
-              {homepage.trust.narrative.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+            <div>
+              <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance mb-4">
+                Why Work With Us
+              </h2>
+              <div className="space-y-4 text-text-light leading-[1.62]">
+                {homepage.trust.narrative.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
             </div>
             <div
               data-testid="guarantee-badge"

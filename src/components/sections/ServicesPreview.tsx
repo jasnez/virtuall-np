@@ -24,10 +24,10 @@ export function ServicesPreview({
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
       <SectionWrapper bgColor="alt" padding="lg">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance">
+          <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance mb-4">
             What We Do
           </h2>
-          <p className="mt-4 text-text-light leading-[1.62]">
+          <p className="text-text-light leading-[1.62] mb-8">
             A quick look at how we help teams turn complex, high-stakes work into
             clear, credible content and research.
           </p>
@@ -35,7 +35,7 @@ export function ServicesPreview({
 
         <div
           data-testid="services-grid"
-          className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch"
         >
           <StaggerChildren
             className="contents"

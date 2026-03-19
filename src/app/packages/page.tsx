@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CtaSection } from "@/components/sections/CtaSection";
 import StructuredData from "@/components/StructuredData";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 const ogImageUrl = "/opengraph-image";
 
@@ -48,26 +49,28 @@ export default function PackagesPage() {
     <main className="min-h-screen">
       <StructuredData page="packages" />
       <AnimateIn delay={0}>
-        <section className="py-20 md:py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-              Packages &amp; Pricing
-            </h1>
-            <p className="mt-4 text-white/90 max-w-2xl mx-auto leading-[1.62]">
-              Choose the level of depth that fits your project—from fast,
-              focused deliverables to fully researched, strategy-backed content.
-            </p>
+        <section className="py-24 bg-gradient-to-br from-primary to-[#0F2440] text-white">
+          <div className={PAGE_CONTAINER_X}>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
+                Packages &amp; Pricing
+              </h1>
+              <p className="mt-4 text-white/90 max-w-2xl mx-auto leading-[1.62]">
+                Choose the level of depth that fits your project—from fast,
+                focused deliverables to fully researched, strategy-backed content.
+              </p>
+            </div>
           </div>
         </section>
       </AnimateIn>
 
       <AnimateIn delay={0}>
         <SectionWrapper bgColor="white" padding="lg">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-text-main">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-text-main mb-4">
             Our Packages
           </h2>
-          <p className="mt-3 text-text-light">
+          <p className="text-text-light mb-8">
             Three simple options for different stages of growth. Every package
             includes clear scope, revisions, and expectations.
           </p>
@@ -146,11 +149,11 @@ export default function PackagesPage() {
 
       <AnimateIn delay={0}>
         <SectionWrapper bgColor="alt" padding="lg">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-semibold text-text-main">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-text-main mb-4">
               Enhance Your Order
             </h2>
-            <p className="mt-3 text-text-light">
+            <p className="text-text-light mb-8">
               Add focused upgrades for speed, depth, or reuse—without changing
               your whole package.
             </p>
@@ -180,11 +183,11 @@ export default function PackagesPage() {
 
       <AnimateIn delay={0}>
       <SectionWrapper bgColor="white" padding="lg">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-text-main">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-text-main mb-4">
             Monthly Retainers
           </h2>
-          <p className="mt-3 text-text-light">
+          <p className="text-text-light mb-8">
             For teams who want a reliable content engine with ongoing support.
           </p>
         </div>
@@ -233,11 +236,11 @@ export default function PackagesPage() {
 
       <AnimateIn delay={0}>
       <SectionWrapper bgColor="alt" padding="lg">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-text-main">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-text-main mb-4">
             Project-Based Pricing
           </h2>
-          <p className="mt-3 text-text-light">
+          <p className="text-text-light mb-8">
             Transparent ranges for common project scopes. We&apos;ll confirm a
             final quote after discovery.
           </p>
@@ -273,11 +276,11 @@ export default function PackagesPage() {
 
       <AnimateIn delay={0}>
       <SectionWrapper bgColor="white" padding="lg">
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-semibold text-text-main">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-text-main mb-4">
             How We Compare
           </h2>
-          <p className="mt-3 text-text-light">
+          <p className="text-text-light mb-8">
             A quick, oversimplified view—so you can sanity-check fit.
           </p>
         </div>

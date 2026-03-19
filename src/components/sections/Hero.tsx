@@ -1,6 +1,7 @@
 import homepage from "@/content/homepage.json";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Button } from "@/components/ui/Button";
+import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 type HeroProps = {
   disableAnimation?: boolean;
@@ -43,7 +44,7 @@ export function Hero({ disableAnimation = false }: HeroProps) {
           </svg>
         </div>
 
-        <div className="relative px-4 sm:px-6 py-20 md:py-24 w-full">
+        <div className={`relative py-24 w-full ${PAGE_CONTAINER_X}`}>
           <div className="mx-auto max-w-2xl text-center text-white">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] sm:leading-[1.1] tracking-tight text-balance">
               {homepage.hero.headline}

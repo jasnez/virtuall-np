@@ -49,7 +49,7 @@ describe("ValueProps", () => {
 
     const section = screen.getByTestId("section-wrapper");
     expect(section).toHaveStyle({ backgroundColor: "#FFF" });
-    expect(section).toHaveClass("py-20", "lg:py-24");
+    expect(section).toHaveClass("py-20");
   });
 
   it("renders value props in a responsive 2x2 then 4-column grid", () => {
