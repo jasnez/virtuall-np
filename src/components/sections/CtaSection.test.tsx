@@ -33,23 +33,30 @@ describe("CtaSection", () => {
     const section = screen.getByTestId("section-wrapper");
     expect(section).toHaveStyle({ backgroundColor: "#1B3A5C" });
 
+    expect(section).toHaveClass("border-t", "border-white/10");
+
     const inner = screen.getByTestId("section-inner");
-    expect(inner.firstChild).toHaveClass("text-center", "text-white");
+    expect(inner.firstChild).toHaveClass(
+      "mx-auto",
+      "max-w-[38rem]",
+      "text-center",
+      "text-white",
+    );
 
     expect(
       screen.getByRole("heading", {
         level: 2,
         name: "Ready to get started?",
       }),
-    ).toHaveClass("text-3xl", "font-semibold");
+    ).toHaveClass("text-3xl", "font-semibold", "max-w-[35rem]", "mb-4");
 
     const desc = screen.getByText(
       "Tell us what you're building and we'll follow up with next steps.",
     );
     expect(desc).toHaveClass(
       "text-white/90",
-      "mb-8",
-      "max-w-xl",
+      "mb-6",
+      "max-w-[32.5rem]",
       "mx-auto",
     );
 

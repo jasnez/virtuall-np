@@ -19,12 +19,19 @@ export function CtaSection({
 }: CtaSectionProps) {
   return (
     <AnimateIn delay={0} disableAnimation={disableAnimation}>
-      <SectionWrapper bgColor="navy" padding="lg">
-        <AnimateIn className="text-center text-white" disableAnimation={disableAnimation}>
-          <h2 className="text-3xl font-semibold tracking-tight leading-[1.18] max-w-3xl mx-auto text-balance mb-4">
+      <SectionWrapper
+        bgColor="navy"
+        padding="lg"
+        className="border-t border-white/10"
+      >
+        <AnimateIn
+          className="mx-auto max-w-[38rem] text-center text-white"
+          disableAnimation={disableAnimation}
+        >
+          <h2 className="mx-auto mb-4 max-w-[35rem] text-3xl font-semibold tracking-tight leading-[1.18] text-balance">
             {title}
           </h2>
-          <p className="text-white/90 mb-8 max-w-xl mx-auto leading-[1.62]">
+          <p className="mx-auto mb-6 max-w-[32.5rem] text-white/90 leading-[1.62]">
             {description}
           </p>
           <div>
