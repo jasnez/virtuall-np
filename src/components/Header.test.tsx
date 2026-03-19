@@ -109,8 +109,8 @@ describe("Header", () => {
     render(<Header />);
     const header = screen.getByTestId("site-header");
 
-    expect(header).toHaveClass("bg-white/95");
-    expect(header).toHaveClass("border-gray-200/50");
+    expect(header).toHaveClass("bg-white/96");
+    expect(header).toHaveClass("border-gray-200/60");
     expect(header).not.toHaveClass("bg-white");
 
     Object.defineProperty(window, "scrollY", { value: 30, writable: true });
@@ -118,7 +118,7 @@ describe("Header", () => {
 
     expect(header).toHaveClass("border-gray-200/90");
     expect(header).toHaveClass("bg-white");
-    expect(header).not.toHaveClass("bg-white/95");
+    expect(header).not.toHaveClass("bg-white/96");
   });
 
   it("opens and closes mobile overlay and locks body scroll", async () => {
