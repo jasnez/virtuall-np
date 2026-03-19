@@ -37,6 +37,8 @@ function sizeClasses(size: ButtonSize, variant: ButtonVariant) {
 const focusRing =
   "focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:outline-none";
 
+const hoverScale = "hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200";
+
 export function Button({
   variant = "primary",
   size = "md",
@@ -103,6 +105,7 @@ export function Button({
   const classes = cx(
     "inline-flex items-center justify-center min-h-[44px] min-w-[44px]",
     focusRing,
+    hoverScale,
     variantClassesWithOverrides(variant),
     sizeClasses(size, variant),
     disabledClasses,

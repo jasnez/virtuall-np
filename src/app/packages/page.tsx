@@ -81,7 +81,7 @@ export default function PackagesPage() {
                 <div data-testid="pricing-card" className="h-full">
                 <div
                   data-testid={`pricing-card-${pkg.id}`}
-                  className={`p-8 rounded-2xl bg-white shadow-sm flex flex-col h-full ${
+                  className={`p-8 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col h-full ${
                     isFeatured ? "relative ring-2 ring-accent" : ""
                   }`}
                 >
@@ -160,7 +160,7 @@ export default function PackagesPage() {
               <AnimateIn key={addon.id} delay={index * 0.1}>
                 <div
                   data-testid="addon-card"
-                  className="p-6 rounded-xl bg-white shadow-sm h-full flex flex-col"
+                  className="p-6 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col"
                 >
                   <h3 className="text-lg font-semibold text-text-main">
                     {addon.name}
