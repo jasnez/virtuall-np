@@ -81,10 +81,10 @@ export function Button({
         return [
           overrides.hasBg ? null : "bg-accent-dark",
           overrides.hasText ? null : "text-white",
-          "px-4",
-          "py-2",
+          "px-5",
+          "py-2.5",
           "rounded-lg",
-          "text-sm",
+          "text-sm font-semibold",
           "hover:bg-accent-dark/90",
           "transition-colors duration-200",
         ]
@@ -107,7 +107,7 @@ export function Button({
   const classes = cx(
     "inline-flex items-center justify-center min-h-[44px] min-w-[44px]",
     focusRing,
-    hoverScale,
+    variant !== "nav" && hoverScale,
     variantClassesWithOverrides(variant),
     sizeClasses(size, variant),
     disabledClasses,
