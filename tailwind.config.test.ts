@@ -1,4 +1,4 @@
-import config from "./tailwind.config";
+import config from "./tailwind.config.js";
 
 describe("tailwind.config.ts theme", () => {
   it("defines custom colors, fonts, and screens", () => {
