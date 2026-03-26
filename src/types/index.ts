@@ -98,6 +98,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   serviceInterest: string;
+  packageId?: "pkg_starter" | "pkg_professional" | "pkg_premium";
   budget?: string;
   message: string;
   honeypot?: string;

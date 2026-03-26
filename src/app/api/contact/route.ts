@@ -16,6 +16,11 @@ const budgetEnum = z.enum([
   "1000-5000",
   "5000-plus",
 ]);
+const packageEnum = z.enum([
+  "pkg_starter",
+  "pkg_professional",
+  "pkg_premium",
+]);
 
 const MAX_NAME = 200;
 const MAX_EMAIL = 254;
@@ -26,12 +31,24 @@ const contactSchema = z.object({
   name: z.string().min(2).max(MAX_NAME),
   email: z.string().email().max(MAX_EMAIL),
   serviceInterest: serviceEnum,
+  packageId: packageEnum.optional(),
   budget: budgetEnum.optional(),
   message: z.string().min(10).max(MAX_MESSAGE),
   website: z.string().max(MAX_WEBSITE).optional(),
 });
 
 type ContactPayload = z.infer<typeof contactSchema>;
+
+const packageLabelMap: Record<z.infer<typeof packageEnum>, string> = {
+  pkg_starter: "Starter",
+  pkg_professional: "Professional",
+  pkg_premium: "Premium",
+};
+
+function getPackageLabel(packageId?: ContactPayload["packageId"]): string {
+  if (!packageId) return "Not selected";
+  return packageLabelMap[packageId];
+}
 
 // In-memory rate limiting (per-process). For production, use a shared store.
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
@@ -126,6 +143,7 @@ export async function POST(req: Request) {
   const safeName = escapeHtml(stripHtmlTags(data.name));
   const safeEmail = escapeHtml(stripHtmlTags(data.email));
   const safeService = escapeHtml(stripHtmlTags(data.serviceInterest));
+  const safePackage = escapeHtml(getPackageLabel(data.packageId));
   const safeBudget = data.budget
     ? escapeHtml(stripHtmlTags(data.budget))
     : "Not specified";
@@ -149,6 +167,7 @@ export async function POST(req: Request) {
     <p><strong>Name:</strong> ${safeName}</p>
     <p><strong>Email:</strong> ${safeEmail}</p>
     <p><strong>Service interest:</strong> ${safeService}</p>
+    <p><strong>Selected package:</strong> ${safePackage}</p>
     <p><strong>Budget:</strong> ${safeBudget}</p>
     <p><strong>Message:</strong></p>
     <p>${safeMessage.replace(/\n/g, "<br />")}</p>

@@ -118,12 +118,25 @@ describe("Contact page", () => {
   it("preselects default service from valid package query", () => {
     mockQuery = {
       service: null,
-      package: "professional",
+      package: "pkg_professional",
     };
 
     render(<ContactPage />);
     const serviceSelect = screen.getByLabelText("Service interest") as HTMLSelectElement;
     expect(serviceSelect.value).toBe("bespoke-content");
+  });
+
+  it("preselects package based on valid package query", () => {
+    mockQuery = {
+      service: null,
+      package: "pkg_professional",
+    };
+
+    render(<ContactPage />);
+    const packageSelect = screen.getByLabelText(
+      "Selected package (optional)",
+    ) as HTMLSelectElement;
+    expect(packageSelect.value).toBe("pkg_professional");
   });
 
   it("does not preselect package fallback for invalid package query", () => {
@@ -135,6 +148,10 @@ describe("Contact page", () => {
     render(<ContactPage />);
     const serviceSelect = screen.getByLabelText("Service interest") as HTMLSelectElement;
     expect(serviceSelect.value).toBe("other");
+    const packageSelect = screen.getByLabelText(
+      "Selected package (optional)",
+    ) as HTMLSelectElement;
+    expect(packageSelect.value).toBe("");
   });
 
   it("shows validation errors when submitting empty form", async () => {
@@ -158,6 +175,10 @@ describe("Contact page", () => {
 
   it("submits successfully and shows success message when data is valid", async () => {
     const user = userEvent.setup();
+    mockQuery = {
+      service: null,
+      package: "pkg_professional",
+    };
     render(<ContactPage />);
 
     await user.type(screen.getByLabelText("Name"), "John Doe");
@@ -179,6 +200,18 @@ describe("Contact page", () => {
         screen.getByText(/Thank you! We will respond within 24 hours./i),
       ).toBeInTheDocument();
     });
+
+    expect(global.fetch).toHaveBeenCalledWith(
+      "/api/contact",
+      expect.objectContaining({
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: expect.any(String),
+      }),
+    );
+    const fetchMock = global.fetch as jest.Mock;
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.packageId).toBe("pkg_professional");
   });
 
   it("shows backend error message when API request fails", async () => {

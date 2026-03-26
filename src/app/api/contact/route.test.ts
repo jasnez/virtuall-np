@@ -68,6 +68,7 @@ describe("POST /api/contact", () => {
       name: "John Doe",
       email: "john@example.com",
       serviceInterest: "research",
+      packageId: "pkg_professional",
       budget: "500-1000",
       message: "This is a valid message about a project.",
       website: "",
@@ -81,6 +82,9 @@ describe("POST /api/contact", () => {
 
     const { __sendMock } = jest.requireMock("resend");
     expect(__sendMock).toHaveBeenCalled();
+    const payload = __sendMock.mock.calls[0][0];
+    expect(payload.html).toContain("Selected package:");
+    expect(payload.html).toContain("Professional");
   });
 
   it("honours honeypot field and does not send email", async () => {

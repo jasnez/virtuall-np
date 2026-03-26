@@ -30,6 +30,11 @@ const budgetEnum = z.enum([
   "1000-5000",
   "5000-plus",
 ]);
+const packageEnum = z.enum([
+  "pkg_starter",
+  "pkg_professional",
+  "pkg_premium",
+]);
 
 const MAX_NAME = 200;
 const MAX_EMAIL = 254;
@@ -46,6 +51,7 @@ const contactSchema = z.object({
     .email("Please enter a valid email")
     .max(MAX_EMAIL, "Email is too long"),
   serviceInterest: serviceEnum,
+  packageId: packageEnum.optional(),
   budget: budgetEnum.optional(),
   message: z
     .string()
@@ -56,27 +62,19 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const validPackageParams = new Set([
-  "starter",
-  "professional",
-  "premium",
-  "pkg_starter",
-  "pkg_professional",
-  "pkg_premium",
-]);
-
 export default function ContactClient() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get("service");
   const packageParam = searchParams.get("package");
-  const hasValidPackageParam = packageParam
-    ? validPackageParams.has(packageParam)
-    : false;
+  const inferredPackage: ContactFormValues["packageId"] =
+    packageParam && packageEnum.safeParse(packageParam).success
+      ? (packageParam as ContactFormValues["packageId"])
+      : undefined;
 
   const inferredService: ContactFormValues["serviceInterest"] =
     (serviceParam && serviceEnum.safeParse(serviceParam).success
       ? (serviceParam as ContactFormValues["serviceInterest"])
-      : null) ?? (hasValidPackageParam ? "bespoke-content" : "other");
+      : null) ?? (inferredPackage ? "bespoke-content" : "other");
 
   const [status, setStatus] = React.useState<
     "idle" | "loading" | "success" | "error"
@@ -94,6 +92,7 @@ export default function ContactClient() {
       name: "",
       email: "",
       serviceInterest: inferredService,
+      packageId: inferredPackage,
       budget: undefined,
       message: "",
       website: "",
@@ -143,6 +142,7 @@ export default function ContactClient() {
         name: "",
         email: "",
         serviceInterest: inferredService,
+        packageId: inferredPackage,
         budget: undefined,
         message: "",
         website: "",
@@ -223,6 +223,16 @@ export default function ContactClient() {
                   Content Structuring for Search &amp; Discovery
                 </option>
                 <option value="other">Other / not sure yet</option>
+              </Select>
+              <Select
+                label="Selected package (optional)"
+                {...register("packageId")}
+                error={errors.packageId?.message}
+              >
+                <option value="">No package selected</option>
+                <option value="pkg_starter">Starter</option>
+                <option value="pkg_professional">Professional</option>
+                <option value="pkg_premium">Premium</option>
               </Select>
 
               <Select
