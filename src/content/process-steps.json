@@ -2,31 +2,31 @@
   {
     "step": 1,
     "title": "Discovery",
-    "description": "We align on goals, audience, constraints, and what success looks like. You share inputs; we ask the sharp questions.",
+    "description": "We get clear on your goals, audience, offer, and constraints. You share the context, and we ask the questions that shape better work.",
     "icon": "clipboard-list"
   },
   {
     "step": 2,
-    "title": "Research & Strategy",
-    "description": "We synthesize sources, competitor context, and key objections to build a clear angle and structure for the deliverable.",
+    "title": "Research & Direction",
+    "description": "We review your materials, study the market, and identify the angles, objections, and gaps that matter most.",
     "icon": "search"
   },
   {
     "step": 3,
-    "title": "Drafting",
-    "description": "We write the first version with your voice, your differentiators, and a conversion-first narrative—no fluff.",
+    "title": "Writing",
+    "description": "We draft with purpose, using your voice, your positioning, and a structure that helps readers follow the message naturally.",
     "icon": "pen-line"
   },
   {
     "step": 4,
-    "title": "Refinement",
-    "description": "We edit for clarity, credibility, and flow. We tighten claims, improve scannability, and apply LLM-friendly structure when relevant.",
+    "title": "Editing",
+    "description": "We refine for clarity, flow, accuracy, and tone. This is where good content becomes confident content.",
     "icon": "sliders"
   },
   {
     "step": 5,
-    "title": "Delivery & Support",
-    "description": "You receive final files plus implementation notes. We support you through revisions and handoff so you can publish confidently.",
+    "title": "Delivery & Revisions",
+    "description": "You receive a polished final copy, clear next steps, and support through revisions so nothing gets left hanging.",
     "icon": "rocket"
   }
 ]

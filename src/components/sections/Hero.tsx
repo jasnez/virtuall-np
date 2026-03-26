@@ -49,14 +49,14 @@ export function Hero({ disableAnimation = false }: HeroProps) {
         >
           <div
             data-testid="hero-content"
-            className="w-full max-w-[600px] text-white text-left max-lg:mx-auto max-lg:text-center"
+            className="w-full max-w-[680px] text-white text-left max-lg:mx-auto max-lg:text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-6xl font-bold leading-[1.03] sm:leading-[1.05] lg:leading-[1.06] tracking-[-0.02em] text-balance mb-5">
               {homepage.hero.headline}
             </h1>
 
             <AnimateIn delay={0.2} disableAnimation={disableAnimation}>
-              <p className="text-base sm:text-lg text-white/[0.88] leading-[1.65] mb-8">
+              <p className="max-w-[62ch] max-lg:mx-auto text-base sm:text-lg text-white/[0.88] leading-[1.65] mb-8 md:mb-10 text-pretty">
                 {homepage.hero.subheadline}
               </p>
             </AnimateIn>

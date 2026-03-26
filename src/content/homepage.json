@@ -1,43 +1,43 @@
 {
   "hero": {
     "headline": "Content that earns trust. Written by humans who understand why it matters.",
-    "subheadline": "VirtuALL NP helps teams turn complex offers into clear messaging, credible narratives, and LLM-ready pages that get understood and chosen.",
+    "subheadline": "VirtuALL NP helps brands turn complex offers into clear, credible content that sounds human because it is. Every project is researched, written, and edited by real people who care about accuracy, tone, and results.",
     "primaryCtaText": "Get a Quote",
     "secondaryCtaText": "View Services"
   },
   "valueProps": [
     {
-      "title": "Clarity over buzzwords",
-      "description": "We remove ambiguity, tighten claims, and structure content so your audience understands the value fast.",
+      "title": "Clarity without filler",
+      "description": "We strip away vague language, sharpen the message, and make your value easy to understand.",
       "icon": "sparkle"
     },
     {
-      "title": "Research-backed credibility",
-      "description": "We use real sources and real signals—so your content earns trust instead of borrowing it.",
+      "title": "Research that holds up",
+      "description": "We build content on real sources, real context, and real thinking, so your message feels credible from the first line.",
       "icon": "search"
     },
     {
-      "title": "Human voice, consistent tone",
-      "description": "Whether the first draft is yours or AI-assisted, the final reads like a confident human wrote it on purpose.",
+      "title": "A genuinely human voice",
+      "description": "Everything we deliver is written and edited by humans. The result is content with rhythm, judgment, and tone that doesn’t sound manufactured.",
       "icon": "message-circle"
     },
     {
-      "title": "LLM-ready information design",
-      "description": "We craft pages that are easy to scan, summarize, and reference—so you show up in modern AI search experiences.",
+      "title": "Structured to be understood",
+      "description": "We organize information so readers can scan it easily, trust it quickly, and find the answers they need without friction.",
       "icon": "bot"
     }
   ],
   "trust": {
     "headline": "Built for teams who can’t afford generic.",
     "narrative": [
-      "If your product is sophisticated, generic content doesn’t just underperform—it misrepresents you.",
-      "We combine editorial quality with strategic structure so your message stays accurate, persuasive, and easy to understand.",
-      "The result is content that supports sales conversations, strengthens positioning, and remains credible over time."
+      "If your offer is nuanced, technical, or hard to explain, generic copy does more than underperform. It creates confusion.",
+      "We help you say the right thing, in the right voice, with the right level of clarity. That means stronger positioning, smoother sales conversations, and content you can actually stand behind.",
+      "Our process is thoughtful, collaborative, and built around quality from the start. No shortcuts. No filler. No faceless production line."
     ]
   },
   "cta": {
-    "headline": "Ready to make your messaging unmistakably clear?",
-    "description": "Tell us what you’re building and what you need. We’ll recommend the fastest path to high-quality content that fits your goals and timeline.",
+    "headline": "Ready for content that sounds like your brand and reads like it was written with care?",
+    "description": "Tell us what you need, what you’re building, and where the current message falls short. We’ll recommend the best next step and give you a clear path forward.",
     "ctaText": "Contact VirtuALL NP"
   }
 }

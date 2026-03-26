@@ -55,7 +55,7 @@ describe("Home page", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Ready to make your messaging unmistakably clear\?/i,
+        name: /Ready for content that sounds like your brand and reads like it was written with care\?/i,
         level: 2,
       }),
     ).toBeInTheDocument();
@@ -74,11 +74,11 @@ describe("Home page", () => {
       // text readability: no tiny text sizes
       expect(document.querySelector(".text-xs")).toBeNull();
 
-      // hero text width constraint (560–620px band)
+      // hero text width constraint
       const hero = screen.getByTestId("hero");
       const heroContent = hero.querySelector("[data-testid='hero-content']");
       expect(heroContent).not.toBeNull();
-      expect(heroContent).toHaveClass("max-w-[600px]");
+      expect(heroContent).toHaveClass("max-w-[680px]");
 
       // value props should stack on mobile
       const valueGrid = screen.getByTestId("value-props-grid");

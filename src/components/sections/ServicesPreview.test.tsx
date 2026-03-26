@@ -91,7 +91,9 @@ describe("ServicesPreview", () => {
       screen.getByRole("heading", { level: 2, name: "What We Do" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/A quick look at how we help/i),
+      screen.getByText(
+        /We help brands communicate clearly through thoughtful writing/i,
+      ),
     ).toBeInTheDocument();
   });
 

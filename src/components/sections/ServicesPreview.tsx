@@ -36,8 +36,9 @@ export function ServicesPreview({
             What We Do
           </h2>
           <p className="text-text-light leading-[1.62]">
-            A quick look at how we help teams turn complex, high-stakes work into
-            clear, credible content and research.
+            We help brands communicate clearly through thoughtful writing,
+            research, and editorial support. Every service is handled by humans
+            from start to finish.
           </p>
         </div>
 

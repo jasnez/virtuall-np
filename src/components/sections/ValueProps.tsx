@@ -30,7 +30,7 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
       <SectionWrapper bgColor="white" padding="lg">
         <div
           data-testid="value-props-intro"
-          className="text-center max-w-2xl mx-auto mb-10"
+          className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
         >
           <h2 className="text-3xl font-semibold text-text-main tracking-tight leading-[1.18] text-balance">
             Why teams choose VirtuALL NP
@@ -38,7 +38,7 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
         </div>
         <div
           data-testid="value-props-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-7 items-stretch"
         >
           <StaggerChildren
             className="contents"
@@ -53,7 +53,7 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
                 <div
                   key={item.title}
                   data-testid="value-prop-item"
-                  className={`flex min-h-0 flex-col items-center text-center h-full ${cardChrome} ${cardPadding24} ${cardHover}`}
+                  className={`flex min-h-0 flex-col items-center text-center h-full ${cardChrome} ${cardPadding24} md:px-7 md:py-7 ${cardHover}`}
                 >
                   <Icon
                     data-testid="value-icon"
@@ -63,7 +63,7 @@ export function ValueProps({ disableAnimation = false }: ValuePropsProps) {
                   />
                   <h3 className={cardTitleProminentClass}>{item.title}</h3>
                   <p
-                    className={`text-base sm:text-sm text-text-light leading-[1.62] flex-1`}
+                    className="text-sm sm:text-base text-text-light leading-[1.62] flex-1"
                   >
                     {item.description}
                   </p>

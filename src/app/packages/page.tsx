@@ -63,8 +63,8 @@ export default function PackagesPage() {
                 Packages &amp; Pricing
               </h1>
               <p className="mt-4 text-white/90 max-w-2xl mx-auto leading-[1.62]">
-                Choose the level of depth that fits your project—from fast,
-                focused deliverables to fully researched, strategy-backed content.
+                Choose the level of support that fits your project, from focused
+                one-off pieces to fully researched, high-touch content work.
               </p>
             </div>
           </div>
@@ -78,8 +78,8 @@ export default function PackagesPage() {
             Our Packages
           </h2>
           <p className="text-text-light mb-8">
-            Three simple options for different stages of growth. Every package
-            includes clear scope, revisions, and expectations.
+            Every package includes human writing, human editing, clear scope,
+            and revision support.
           </p>
         </div>
 
@@ -191,7 +191,8 @@ export default function PackagesPage() {
             Monthly Retainers
           </h2>
           <p className="text-text-light mb-8">
-            For teams who want a reliable content engine with ongoing support.
+            For teams that want reliable support, steady output, and content
+            consistency across projects.
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -244,8 +245,8 @@ export default function PackagesPage() {
             Project-Based Pricing
           </h2>
           <p className="text-text-light mb-8">
-            Transparent ranges for common project scopes. We&apos;ll confirm a
-            final quote after discovery.
+            Clear pricing ranges for common project types. Final quotes are
+            confirmed after we review scope, inputs, and timelines.
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -284,7 +285,7 @@ export default function PackagesPage() {
             How We Compare
           </h2>
           <p className="text-text-light mb-8">
-            A quick, oversimplified view—so you can sanity-check fit.
+            A simple comparison to help you judge fit.
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -300,28 +301,31 @@ export default function PackagesPage() {
               <AnimateIn as="tr" delay={0} className="border-b">
                 <td className="px-4 py-3 text-text-main">Content mills</td>
                 <td className="px-4 py-3 text-text-light">
-                  Low per-word rates, high volume
+                  Low cost, high volume, usually built for output over substance
                 </td>
                 <td className="px-4 py-3 text-text-main">
-                  Fewer pieces, higher depth, built for trust and reuse
+                  Lower volume, higher care, stronger writing, more reusable
+                  work
                 </td>
               </AnimateIn>
               <AnimateIn as="tr" delay={0.1} className="border-b">
                 <td className="px-4 py-3 text-text-main">Generic agencies</td>
                 <td className="px-4 py-3 text-text-light">
-                  Higher retainers, broad services
+                  Broader service mix, less depth in the writing itself
                 </td>
                 <td className="px-4 py-3 text-text-main">
-                  Focused scope on complex offers and research-backed content
+                  Focused on clarity, research, and content that has real
+                  substance
                 </td>
               </AnimateIn>
               <AnimateIn as="tr" delay={0.2}>
                 <td className="px-4 py-3 text-text-main">Solo freelancers</td>
                 <td className="px-4 py-3 text-text-light">
-                  Varies widely by experience
+                  Can be excellent, but quality and process vary widely
                 </td>
                 <td className="px-4 py-3 text-text-main">
-                  Clear structure, documented process, and LLM-aware delivery
+                  Clear process, consistent editorial standards, and a more
+                  structured client experience
                 </td>
               </AnimateIn>
             </tbody>

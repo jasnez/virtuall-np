@@ -4,9 +4,9 @@
       "id": "pkg_starter",
       "name": "Starter",
       "featured": false,
-      "targetClient": "Solo founders and small teams who need fast, clean copy for a specific page or asset.",
-      "priceRange": { "min": 80, "max": 120, "currency": "EUR" },
-      "wordLimit": 800,
+      "targetClient": "For solo founders and small teams who need one strong piece of content done properly.",
+      "priceRange": { "min": 30, "max": 60, "currency": "EUR" },
+      "wordLimit": 1000,
       "turnaround": "3–5 business days",
       "revisions": 1,
       "researchDepth": "Light (provided materials + quick validation)",
@@ -22,8 +22,8 @@
       "id": "pkg_professional",
       "name": "Professional",
       "featured": true,
-      "targetClient": "Growing teams that need stronger positioning, clearer structure, and content that converts.",
-      "priceRange": { "min": 200, "max": 400, "currency": "EUR" },
+      "targetClient": "For growing teams that need clearer positioning, stronger structure, and more persuasive content.",
+      "priceRange": { "min": 80, "max": 150, "currency": "EUR" },
       "wordLimit": 2000,
       "turnaround": "5–7 business days",
       "revisions": 2,
@@ -41,18 +41,18 @@
       "id": "pkg_premium",
       "name": "Premium",
       "featured": false,
-      "targetClient": "Brands that need authoritative, source-backed content with deep research and polished delivery.",
-      "priceRange": { "min": 500, "max": 900, "currency": "EUR" },
+      "targetClient": "For brands that need authoritative, research-backed content with more depth, strategy, and polish.",
+      "priceRange": { "min": 250, "max": 350, "currency": "EUR" },
       "wordLimit": 5000,
       "turnaround": "10–14 business days",
       "revisions": 3,
       "researchDepth": "Deep (sources + synthesis + positioning narrative)",
       "includes": [
-        "Research brief with citations",
+        "Research brief with supporting sources",
         "Full page narrative and section strategy",
-        "3–5 supporting content sections/assets",
-        "Advanced AI humanization and tone polish",
-        "LLM-optimized FAQ and key takeaways"
+        "3–5 supporting content sections or assets",
+        "Deep human editing and tone refinement",
+        "FAQ and key takeaways where relevant"
       ],
       "ctaText": "Choose Premium"
     }
@@ -61,31 +61,31 @@
     {
       "id": "addon_rush",
       "name": "Rush delivery",
-      "price": 60,
+      "price": 30,
       "description": "Move your project to the front of the queue (subject to availability)."
     },
     {
       "id": "addon_extra_revision",
       "name": "Extra revision",
-      "price": 40,
+      "price": 20,
       "description": "One additional revision cycle beyond what your package includes."
     },
     {
       "id": "addon_style_guide",
       "name": "Mini brand voice guide",
       "price": 120,
-      "description": "A lightweight voice and tone guide you can reuse across writers and tools."
+      "description": "A practical voice and tone reference you can reuse across future content."
     },
     {
       "id": "addon_llm_audit",
-      "name": "LLM optimization audit",
-      "price": 150,
-      "description": "A focused review of one page for clarity, structure, and AI-search friendliness."
+      "name": "Content structure audit",
+      "price": 125,
+      "description": "A focused review of one page for clarity, organization, and discoverability."
     },
     {
       "id": "addon_research_pack",
       "name": "Research pack",
-      "price": 180,
+      "price": 100,
       "description": "Competitor scan, audience objections, and source-backed notes for one topic."
     }
   ],
@@ -93,7 +93,7 @@
     {
       "id": "retainer_light",
       "name": "Light Retainer",
-      "monthlyRate": 600,
+      "monthlyRate": 340,
       "wordVolume": 6000,
       "discount": 5,
       "benefits": ["Monthly planning call", "Priority turnaround", "Consistent brand voice"]
@@ -101,26 +101,26 @@
     {
       "id": "retainer_growth",
       "name": "Growth Retainer",
-      "monthlyRate": 1200,
+      "monthlyRate": 630,
       "wordVolume": 14000,
       "discount": 10,
       "benefits": [
-        "Content calendar support",
-        "Research + writing bundle",
+        "Content planning support",
+        "Research and writing bundle",
         "Two revision cycles included",
-        "LLM-friendly structure by default"
+        "Stronger structure by default"
       ]
     },
     {
       "id": "retainer_authority",
       "name": "Authority Retainer",
-      "monthlyRate": 2000,
+      "monthlyRate": 1200,
       "wordVolume": 26000,
       "discount": 15,
       "benefits": [
         "Deep research sprints",
-        "Thought-leadership production",
-        "Priority queue + rush slots",
+        "Thought leadership support",
+        "Priority queue access",
         "Quarterly messaging refresh"
       ]
     }
@@ -129,22 +129,22 @@
     {
       "type": "project",
       "scope": "Landing page (strategy + copy)",
-      "priceRange": { "min": 250, "max": 450, "currency": "EUR" }
+      "priceRange": { "min": 150, "max": 350, "currency": "EUR" }
     },
     {
       "type": "project",
       "scope": "Website copy (up to 5 pages)",
-      "priceRange": { "min": 700, "max": 1200, "currency": "EUR" }
+      "priceRange": { "min": 500, "max": 700, "currency": "EUR" }
     },
     {
       "type": "project",
       "scope": "Content sprint (4 articles + briefs)",
-      "priceRange": { "min": 600, "max": 1100, "currency": "EUR" }
+      "priceRange": { "min": 400, "max": 600, "currency": "EUR" }
     },
     {
       "type": "project",
       "scope": "LLM optimization (audit + rewrite)",
-      "priceRange": { "min": 300, "max": 700, "currency": "EUR" }
+      "priceRange": { "min": 250, "max": 500, "currency": "EUR" }
     }
   ]
 }

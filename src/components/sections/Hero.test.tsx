@@ -74,7 +74,7 @@ describe("Hero", () => {
     );
 
     const heroContent = screen.getByTestId("hero-content");
-    expect(heroContent).toHaveClass("max-w-[600px]");
+    expect(heroContent).toHaveClass("max-w-[680px]");
   });
 
   it("renders CTA links with correct hrefs", () => {
