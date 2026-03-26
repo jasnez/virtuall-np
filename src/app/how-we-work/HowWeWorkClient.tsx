@@ -9,7 +9,6 @@ import faq from "@/content/faq.json";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CtaSection } from "@/components/sections/CtaSection";
-import homepage from "@/content/homepage.json";
 import { PAGE_CONTAINER_X } from "@/lib/page-layout";
 
 function FaqAccordion() {
@@ -83,8 +82,8 @@ export default function HowWeWorkClient() {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold">How We Work</h1>
               <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-                A clear, source-backed process from discovery to delivery—so you
-                always know what&apos;s happening next.
+                A clear, thoughtful process from first conversation to final
+                delivery.
               </p>
             </div>
           </div>
@@ -98,8 +97,8 @@ export default function HowWeWorkClient() {
               Our Process
             </h2>
             <p className="text-text-light mb-8">
-              Five structured steps that keep projects moving while leaving room
-              for thoughtful collaboration.
+              Five practical steps that keep projects moving without making the
+              process feel rigid.
             </p>
           </div>
 
@@ -148,9 +147,9 @@ export default function HowWeWorkClient() {
       </AnimateIn>
 
       <CtaSection
-        title={homepage.cta.headline}
-        description={homepage.cta.description}
-        ctaLabel={homepage.cta.ctaText}
+        title="Ready for content that feels sharper, clearer, and more credible?"
+        description="Tell us what you need help with and where the message is falling short. We’ll point you toward the most useful next step."
+        ctaLabel="Contact VirtuALL NP"
         ctaHref="/contact"
       />
     </main>

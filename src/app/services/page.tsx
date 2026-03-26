@@ -60,9 +60,7 @@ export default function ServicesPage() {
               <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
               <p className="mt-4 text-white/80 max-w-2xl mx-auto">
                 Deep work, clear outcomes, and content created by humans from
-                start to finish. We help brands communicate with more clarity,
-                more substance, and more trust through research-backed writing
-                and careful editorial work.
+                start to finish.
               </p>
             </div>
           </div>

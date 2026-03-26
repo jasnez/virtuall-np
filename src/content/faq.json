@@ -1,34 +1,34 @@
 [
   {
     "question": "What industries do you work with?",
-    "answer": "We work with teams that value clarity and credibility—especially in tech, services, and knowledge-heavy niches. If your offer is complex, we’ll make it understandable without dumbing it down."
+    "answer": "We work best with brands that have something real to say and want to say it clearly. That often includes service businesses, B2B brands, technical offers, and knowledge-heavy niches."
   },
   {
-    "question": "Do you write with AI?",
-    "answer": "We can use AI-assisted workflows when it helps with speed, iteration, and early drafts. Final delivery is always human-edited for voice, accuracy, and intent—so it reads naturally and performs."
+    "question": "Do you use AI to write content?",
+    "answer": "No. Our deliverables are written and edited by humans. If a client brings us an AI draft, we treat it as raw material and rewrite it properly before it becomes final copy."
   },
   {
-    "question": "What does “AI humanization” actually include?",
-    "answer": "It means rewriting AI-generated drafts so they sound human and on-brand: better structure, less repetition, more specificity, clearer logic, and tighter claims."
+    "question": "What does your rewrite service include?",
+    "answer": "It includes structural editing, tone alignment, clarity improvements, stronger wording, and deeper rewrites where needed. The goal is not to lightly polish weak content, but to turn it into something you’d actually want representing your brand."
   },
   {
     "question": "How do you handle research and citations?",
-    "answer": "When research is included, we document sources and support claims with reputable references. We also flag areas that need internal validation (e.g., product metrics) to keep everything accurate."
+    "answer": "When a project calls for research, we use credible sources, review the relevant context, and build the work around claims that can hold up. We can also provide source notes or citations when needed."
   },
   {
-    "question": "What do you need from us to start?",
-    "answer": "A short intake: your offer, audience, current messaging, examples you like, and any non-negotiables. If you don’t have these yet, we’ll guide you through quick discovery prompts."
+    "question": "What do you need from us to get started?",
+    "answer": "Usually a short brief, your goals, any existing materials, and clarity on audience and offer. If you already have drafts, notes, or internal documents, we can work from those too."
   },
   {
     "question": "How many revisions are included?",
-    "answer": "Each package includes a defined number of revision cycles. Most projects resolve within those cycles because we align early on goals, voice, and constraints."
+    "answer": "That depends on the package, but every project includes revision room so the final output feels right, not rushed."
   },
   {
     "question": "Can you match our brand voice?",
-    "answer": "Yes. We start with voice samples and a quick alignment pass. If you need consistency across many assets, we recommend the Mini brand voice guide add-on."
+    "answer": "Yes. Matching voice is a core part of the work. We look at how your brand speaks, what your audience expects, and where the current message needs refinement."
   },
   {
     "question": "Do you offer ongoing support?",
-    "answer": "Yes—retainers are available for consistent publishing, research-backed content, and continuous optimization. They’re ideal when you want a reliable content engine month over month."
+    "answer": "Yes. We can support brands through retainers, content batches, ongoing editing, and longer-term messaging support where it makes sense."
   }
 ]

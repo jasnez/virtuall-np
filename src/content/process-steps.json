@@ -2,31 +2,31 @@
   {
     "step": 1,
     "title": "Discovery",
-    "description": "We get clear on your goals, audience, offer, and constraints. You share the context, and we ask the questions that shape better work.",
+    "description": "We start by understanding your offer, audience, goals, and constraints. This gives us the context we need to write something accurate, useful, and aligned with your brand.",
     "icon": "clipboard-list"
   },
   {
     "step": 2,
     "title": "Research & Direction",
-    "description": "We review your materials, study the market, and identify the angles, objections, and gaps that matter most.",
+    "description": "We review your materials, study relevant context, and identify the strongest angle for the work. That may include market research, competitor review, source gathering, or message clarification.",
     "icon": "search"
   },
   {
     "step": 3,
     "title": "Writing",
-    "description": "We draft with purpose, using your voice, your positioning, and a structure that helps readers follow the message naturally.",
+    "description": "We draft the piece with your voice, positioning, and audience in mind. The goal is always the same: clear writing that sounds natural and says something meaningful.",
     "icon": "pen-line"
   },
   {
     "step": 4,
     "title": "Editing",
-    "description": "We refine for clarity, flow, accuracy, and tone. This is where good content becomes confident content.",
+    "description": "We revise for structure, clarity, tone, and precision. This is where loose ideas get tightened, and good copy becomes stronger copy.",
     "icon": "sliders"
   },
   {
     "step": 5,
     "title": "Delivery & Revisions",
-    "description": "You receive a polished final copy, clear next steps, and support through revisions so nothing gets left hanging.",
+    "description": "You receive polished final work, room for revisions, and support through the handoff so you can publish with confidence.",
     "icon": "rocket"
   }
 ]

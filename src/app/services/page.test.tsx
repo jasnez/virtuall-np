@@ -64,9 +64,6 @@ describe("Services page", () => {
     expect(
       screen.getByText(/Deep work, clear outcomes/i),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/content created by humans from start to finish/i),
-    ).toBeInTheDocument();
   });
 
   it("renders all services as alternating anchored sections with CTAs", () => {

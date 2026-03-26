@@ -142,7 +142,7 @@ describe("How We Work page", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Ready for content that sounds like your brand and reads like it was written with care\?/i,
+        name: /Ready for content that feels sharper, clearer, and more credible\?/i,
         level: 2,
       }),
     ).toBeInTheDocument();
