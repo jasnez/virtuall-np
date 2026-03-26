@@ -64,6 +64,9 @@ describe("Services page", () => {
     expect(
       screen.getByText(/Deep work, clear outcomes/i),
     ).toBeInTheDocument();
+    expect(
+      screen.getByText(/content created by humans from start to finish/i),
+    ).toBeInTheDocument();
   });
 
   it("renders all services as alternating anchored sections with CTAs", () => {
@@ -83,7 +86,7 @@ describe("Services page", () => {
       expect(heading).toBeInTheDocument();
 
       const cta = screen.getByRole("link", {
-        name: `Get a Quote for ${svc.title}`,
+        name: svc.ctaText || `Get a Quote for ${svc.title}`,
       });
       expect(cta).toHaveAttribute(
         "href",
@@ -133,7 +136,7 @@ describe("Services page", () => {
 
       // touch target: CTA is large enough
       const cta = screen.getByRole("link", {
-        name: `Get a Quote for ${services[0].title}`,
+        name: services[0].ctaText || `Get a Quote for ${services[0].title}`,
       });
       expect(cta).toHaveClass("min-h-[48px]");
 

@@ -4,9 +4,9 @@
     "slug": "bespoke-content",
     "title": "Bespoke Content",
     "icon": "pen-line",
-    "positioning": "Custom-written content that sounds like you, persuades like a strategist, and reads like a human—because it is.",
+    "positioning": "Custom-written content that reflects your brand, speaks to the right audience, and gives readers a reason to trust you.",
     "shortDescription": "Original, brand-aligned writing for websites, landing pages, blogs, and other core assets.",
-    "fullDescription": "Bespoke Content is for teams that want writing with a point of view—built around your audience, your offer, and your brand voice. We combine clear messaging, conversion-first structure, and editorial quality so your content earns attention and drives action without sounding templated.",
+    "fullDescription": "Bespoke Content is for teams that want more than polished wording. It’s for brands that need clear messaging, strong structure, and writing with actual judgment behind it. Every piece is written by a real person who understands how to balance voice, clarity, and conversion.",
     "deliverables": [
       "Landing pages and website copy",
       "Blog posts and thought leadership",
@@ -27,9 +27,9 @@
     "slug": "research",
     "title": "Research",
     "icon": "search",
-    "positioning": "Research that reduces uncertainty—so you can write, ship, and sell with confidence.",
+    "positioning": "Research that gives your content substance, direction, and a stronger point of view.",
     "shortDescription": "Deep research that turns scattered ideas, sources, and market signals into directions you can actually use.",
-    "fullDescription": "Research is the foundation for content that stands out. We gather and synthesize sources, customer signals, competitor messaging, and market context to produce a clear narrative: what matters, what to say, and how to support it. You get artifacts you can reuse—briefs, outlines, citations, and positioning angles.",
+    "fullDescription": "We gather, review, and synthesize the material behind the message, from competitor positioning to audience concerns to source-backed claims. You get usable insights, not a pile of notes. That can include briefs, messaging angles, outlines, supporting sources, and clearer direction for what to say next.",
     "deliverables": [
       "Competitor and messaging analysis",
       "Audience pains, jobs-to-be-done, and objections",
@@ -48,17 +48,17 @@
   {
     "id": "svc_ai_humanization",
     "slug": "ai-humanization",
-    "title": "Human Rewrite & Editing",
+    "title": "Human Rewrite & Editorial Rescue",
     "icon": "sparkles",
-    "positioning": "Make AI drafts feel human: consistent voice, better rhythm, and sharper meaning—without losing speed.",
+    "positioning": "We take rough, flat, or overly generic drafts and turn them into content that feels considered, confident, and genuinely human.",
     "shortDescription": "Bring us rough drafts, outdated copy, or AI-generated text, and we’ll rebuild it into something clear, credible, and human.",
-    "fullDescription": "AI Humanization transforms AI-generated text into content that reads as intentional and trustworthy. We fix tone, logic, repetition, and specificity; add nuance where needed; and make the final copy match your brand voice. You’ll keep the efficiency of AI while delivering a human-grade output.",
+    "fullDescription": "This service is ideal when the starting point is weak, whether that means clunky website copy, inconsistent messaging, outdated pages, or AI-generated drafts that don’t sound like your brand. We don’t just smooth the surface. We rewrite, restructure, and refine until the content reads naturally and says something worth reading.",
     "deliverables": [
-      "Voice alignment and tone correction",
-      "Structural edits and clarity improvements",
-      "Fact-check notes and claim tightening",
-      "Anti-fluff rewrites with specificity",
-      "Optional style guide for future drafts"
+      "Full rewrites for rough or generic drafts",
+      "Tone and voice alignment",
+      "Clarity, flow, and structure improvements",
+      "Claim tightening and specificity edits",
+      "Optional style guidance for future consistency"
     ],
     "useCases": [
       "Turning AI drafts into publish-ready content",
@@ -66,22 +66,22 @@
       "Reducing generic-sounding marketing copy",
       "Improving trust for high-stakes pages"
     ],
-    "ctaText": "Humanize My Draft"
+    "ctaText": "Get a Quote for Human Rewrite & Editing"
   },
   {
     "id": "svc_llm_optimized",
     "slug": "llm-optimized",
     "title": "Content Structuring for Search & Discovery",
     "icon": "bot",
-    "positioning": "Content designed to be discoverable, quotable, and summarizable—so it performs in AI-assisted search.",
+    "positioning": "Clearer structure, stronger organization, and content that is easier for both people and modern search systems to understand.",
     "shortDescription": "Pages shaped for clarity, usability, and stronger visibility across both traditional search and AI-driven discovery.",
-    "fullDescription": "LLM-Optimized content goes beyond keywords. We craft pages with strong information architecture, explicit definitions, scannable sections, and clear entity relationships so models can reliably understand and reference your content. The goal is simple: more accurate brand mentions, better AI summaries, and fewer hallucinated interpretations.",
+    "fullDescription": "We build pages with strong information flow, useful headings, clear definitions, and consistent terminology. That helps your content perform better across traditional search, AI summaries, and answer-driven discovery without making it sound robotic or over-engineered.",
     "deliverables": [
-      "LLM-friendly page structure and headings",
-      "Definitions, FAQs, and canonical phrasing",
-      "Entity and terminology consistency",
-      "Internal link recommendations",
-      "Update plan for existing pages"
+      "Clear page structure and heading hierarchy",
+      "Definitions, FAQs, and supporting sections",
+      "Consistent terminology across pages",
+      "Internal linking suggestions",
+      "Recommendations for improving existing content"
     ],
     "useCases": [
       "Improving performance in AI search experiences",
@@ -89,6 +89,6 @@
       "Reducing ambiguity for technical offerings",
       "Updating legacy content for modern discovery"
     ],
-    "ctaText": "Optimize for LLM Search"
+    "ctaText": "Get a Quote for Content Structuring"
   }
 ]

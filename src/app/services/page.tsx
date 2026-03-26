@@ -59,8 +59,10 @@ export default function ServicesPage() {
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
               <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-                Deep work, clear outcomes, and content that’s built to earn trust—
-                not just clicks.
+                Deep work, clear outcomes, and content created by humans from
+                start to finish. We help brands communicate with more clarity,
+                more substance, and more trust through research-backed writing
+                and careful editorial work.
               </p>
             </div>
           </div>
@@ -113,7 +115,7 @@ export default function ServicesPage() {
                     <Button
                       href={`/contact?service=${encodeURIComponent(svc.slug)}`}
                     >
-                      {`Get a Quote for ${svc.title}`}
+                      {svc.ctaText || `Get a Quote for ${svc.title}`}
                     </Button>
                   </div>
                 </div>

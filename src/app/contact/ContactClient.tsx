@@ -216,8 +216,12 @@ export default function ContactClient() {
               >
                 <option value="bespoke-content">Bespoke Content</option>
                 <option value="research">Research</option>
-                <option value="ai-humanization">AI Humanization</option>
-                <option value="llm-optimized">LLM-Optimized</option>
+                <option value="ai-humanization">
+                  Human Rewrite &amp; Editorial Rescue
+                </option>
+                <option value="llm-optimized">
+                  Content Structuring for Search &amp; Discovery
+                </option>
                 <option value="other">Other / not sure yet</option>
               </Select>
 
