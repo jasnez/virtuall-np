@@ -8,7 +8,7 @@ import StructuredData from "./StructuredData";
 import { generateJsonLd } from "@/lib/structuredData";
 
 describe("StructuredData (JSON-LD)", () => {
-  it("home: generates Organization + LocalBusiness", () => {
+  it("home: generates Organization + LocalBusiness + WebSite", () => {
     const jsonLd = generateJsonLd("home");
 
     expect(jsonLd["@context"]).toBe("https://schema.org");
@@ -17,6 +17,7 @@ describe("StructuredData (JSON-LD)", () => {
     const types = jsonLd["@graph"].map((n: any) => n["@type"]);
     expect(types).toContain("Organization");
     expect(types).toContain("LocalBusiness");
+    expect(types).toContain("WebSite");
 
     const org = jsonLd["@graph"].find((n: any) => n["@type"] === "Organization");
     expect(org.name).toBe(siteConfig.siteName);
@@ -39,6 +40,11 @@ describe("StructuredData (JSON-LD)", () => {
     expect(localBusiness.telephone).toBe(siteConfig.contact.phone);
     expect(localBusiness.email).toBe(siteConfig.contact.email);
     expect(localBusiness.openingHours).toBe(siteConfig.openingHours);
+
+    const website = jsonLd["@graph"].find((n: any) => n["@type"] === "WebSite");
+    expect(website["@id"]).toBe(`${siteConfig.url}#website`);
+    expect(website.url).toBe(siteConfig.url);
+    expect(website.publisher).toEqual({ "@id": `${siteConfig.url}#organization` });
   });
 
   it("home: StructuredData injects script into document.head", () => {

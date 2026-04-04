@@ -38,6 +38,16 @@ const nextConfig: NextConfig = {
     // `next/package.json` should be resolvable from this directory.
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "virtuall-np.com" }],
+        destination: "https://www.virtuall-np.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

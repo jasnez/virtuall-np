@@ -9,18 +9,18 @@ describe("sitemap (metadata route)", () => {
 
     const byUrl = new Map(entries.map((e: any) => [e.url, e]));
 
-    expect(byUrl.get("https://virtuall-np.com/")?.priority).toBe(1.0);
+    expect(byUrl.get("https://www.virtuall-np.com/")?.priority).toBe(1.0);
 
-    expect(byUrl.get("https://virtuall-np.com/services/")?.priority).toBe(
+    expect(byUrl.get("https://www.virtuall-np.com/services/")?.priority).toBe(
       0.9,
     );
-    expect(byUrl.get("https://virtuall-np.com/packages/")?.priority).toBe(0.8);
-    expect(byUrl.get("https://virtuall-np.com/how-we-work/")?.priority).toBe(
+    expect(byUrl.get("https://www.virtuall-np.com/packages/")?.priority).toBe(0.8);
+    expect(byUrl.get("https://www.virtuall-np.com/how-we-work/")?.priority).toBe(
       0.8,
     );
-    expect(byUrl.get("https://virtuall-np.com/contact/")?.priority).toBe(0.7);
+    expect(byUrl.get("https://www.virtuall-np.com/contact/")?.priority).toBe(0.7);
     expect(
-      byUrl.get("https://virtuall-np.com/privacy-policy/")?.priority,
+      byUrl.get("https://www.virtuall-np.com/privacy-policy/")?.priority,
     ).toBe(0.3);
 
     for (const e of entries) {

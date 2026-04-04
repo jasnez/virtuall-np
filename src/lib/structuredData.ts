@@ -61,9 +61,17 @@ export function generateJsonLd(page: StructuredDataPage) {
   };
 
   if (page === "home") {
+    const website = {
+      "@id": `${siteConfig.url}#website`,
+      "@type": "WebSite",
+      name: siteConfig.siteName,
+      url: siteConfig.url,
+      publisher: { "@id": orgId },
+    };
+
     return {
       "@context": schemaOrgContext,
-      "@graph": [organization, localBusiness],
+      "@graph": [organization, localBusiness, website],
     };
   }
 

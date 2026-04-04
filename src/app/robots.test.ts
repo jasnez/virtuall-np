@@ -5,7 +5,7 @@ describe("robots (metadata route)", () => {
     const r: any = robots();
 
     expect(r).toBeTruthy();
-    expect(r.sitemap).toBe("https://virtuall-np.com/sitemap.xml");
+    expect(r.sitemap).toBe("https://www.virtuall-np.com/sitemap.xml");
 
     // Expected Next.js metadata route shape:
     // { rules: [{ userAgent: '*', allow: '/' }], sitemap: '...' }
