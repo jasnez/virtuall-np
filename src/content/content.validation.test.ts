@@ -26,6 +26,8 @@ const SeoDefaultsSchema = z.object({
   description: z.string().min(1),
   ogTitle: z.string().min(1),
   ogDescription: z.string().min(1),
+  /** Exact `content` value from Search Console → HTML tag (optional). */
+  googleSiteVerification: z.string().min(1).optional(),
 });
 
 const SiteConfigSchema = z.object({

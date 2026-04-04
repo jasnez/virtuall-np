@@ -19,6 +19,11 @@ const inter = Inter({
 
 const ogImageUrl = "/opengraph-image";
 
+type SeoWithOptionalGoogle = typeof siteConfig.seo & {
+  googleSiteVerification?: string;
+};
+const seo = siteConfig.seo as SeoWithOptionalGoogle;
+
 export const metadata: Metadata = {
   title: {
     default: "VirtuALL NP",
@@ -45,6 +50,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [ogImageUrl],
   },
+  ...(seo.googleSiteVerification
+    ? {
+        verification: {
+          google: seo.googleSiteVerification,
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
