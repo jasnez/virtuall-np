@@ -26,6 +26,10 @@ const MAX_NAME = 200;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 10_000;
 const MAX_WEBSITE = 500;
+const MAX_TURNSTILE_TOKEN = 2048;
+
+const TURNSTILE_VERIFY_URL =
+  "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 const contactSchema = z.object({
   name: z.string().min(2).max(MAX_NAME),
@@ -35,6 +39,7 @@ const contactSchema = z.object({
   budget: budgetEnum.optional(),
   message: z.string().min(10).max(MAX_MESSAGE),
   website: z.string().max(MAX_WEBSITE).optional(),
+  turnstileToken: z.string().max(MAX_TURNSTILE_TOKEN).optional(),
 });
 
 type ContactPayload = z.infer<typeof contactSchema>;
@@ -90,6 +95,34 @@ function stripHtmlTags(value: string): string {
   return value.replace(/<[^>]*>/g, "").trim();
 }
 
+async function verifyTurnstileToken(
+  responseToken: string,
+  remoteip: string,
+): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true;
+
+  const body = new URLSearchParams();
+  body.set("secret", secret);
+  body.set("response", responseToken);
+  if (remoteip && remoteip !== "unknown") {
+    body.set("remoteip", remoteip);
+  }
+
+  try {
+    const res = await fetch(TURNSTILE_VERIFY_URL, {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      body,
+    });
+    if (!res.ok) return false;
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(req: Request) {
   const contentType = req.headers.get("content-type") ?? "";
   if (!contentType.replace(/\s/g, "").toLowerCase().startsWith("application/json")) {
@@ -138,7 +171,30 @@ export async function POST(req: Request) {
     );
   }
 
-  const data = parsed.data;
+  const { turnstileToken, ...data } = parsed.data;
+
+  if (process.env.TURNSTILE_SECRET_KEY) {
+    const token = turnstileToken?.trim();
+    if (!token) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Please complete the security check.",
+        },
+        { status: 400 },
+      );
+    }
+    const turnstileOk = await verifyTurnstileToken(token, ip);
+    if (!turnstileOk) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Security verification failed. Please try again.",
+        },
+        { status: 400 },
+      );
+    }
+  }
 
   const safeName = escapeHtml(stripHtmlTags(data.name));
   const safeEmail = escapeHtml(stripHtmlTags(data.email));
@@ -149,7 +205,7 @@ export async function POST(req: Request) {
     : "Not specified";
   const safeMessage = escapeHtml(stripHtmlTags(data.message));
 
-  const toEmail = process.env.CONTACT_EMAIL || "office@virtuall-np.com";
+  const toEmail = process.env.CONTACT_EMAIL || "sales@virtuall-np.com";
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return NextResponse.json(

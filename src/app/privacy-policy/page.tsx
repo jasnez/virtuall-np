@@ -116,6 +116,11 @@ export default function PrivacyPolicyPage() {
           <li>
             <strong>Resend</strong> for sending emails in response to contact requests.
           </li>
+          <li>
+            <strong>Cloudflare Turnstile</strong> for bot protection on the contact
+            form (challenge data may be processed by Cloudflare when you submit the
+            form).
+          </li>
         </ul>
 
         <h2>Data Retention</h2>

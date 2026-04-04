@@ -29,13 +29,16 @@ import { POST } from "./route";
 
 describe("POST /api/contact", () => {
   const originalEnv = process.env;
+  const originalFetch = global.fetch;
 
   beforeEach(() => {
+    global.fetch = originalFetch;
     process.env = {
       ...originalEnv,
-      CONTACT_EMAIL: "office@virtuall-np.com",
+      CONTACT_EMAIL: "sales@virtuall-np.com",
       RESEND_API_KEY: "test_api_key",
     };
+    delete process.env.TURNSTILE_SECRET_KEY;
     const { __sendMock } = jest.requireMock("resend");
     __sendMock.mockReset();
   });
@@ -218,6 +221,84 @@ describe("POST /api/contact", () => {
     expect(payload.html).not.toMatch(/onerror\s*=/i);
     expect(payload.html).not.toContain("<img");
     expect(payload.subject).not.toMatch(/onerror|alert/i);
+  });
+
+  it("returns 400 when Turnstile secret is set but token is missing", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "test_turnstile_secret";
+
+    const body = {
+      name: "John Doe",
+      email: "john@example.com",
+      serviceInterest: "research",
+      budget: "500-1000",
+      message: "This is a valid message about a project.",
+      website: "",
+    };
+
+    const res = await POST(createRequest(body, "203.0.113.50"));
+    expect(res.status).toBe(400);
+    const json = await res.json();
+    expect(json.success).toBe(false);
+    expect(json.error).toContain("security check");
+
+    const { __sendMock } = jest.requireMock("resend");
+    expect(__sendMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 when Turnstile verification fails", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "test_turnstile_secret";
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: false, "error-codes": ["invalid-input-response"] }),
+    }) as jest.Mock;
+
+    const body = {
+      name: "John Doe",
+      email: "john@example.com",
+      serviceInterest: "research",
+      budget: "500-1000",
+      message: "This is a valid message about a project.",
+      website: "",
+      turnstileToken: "bad-token",
+    };
+
+    const res = await POST(createRequest(body, "203.0.113.51"));
+    expect(res.status).toBe(400);
+    const json = await res.json();
+    expect(json.success).toBe(false);
+    expect(json.error).toMatch(/verification failed/i);
+
+    const { __sendMock } = jest.requireMock("resend");
+    expect(__sendMock).not.toHaveBeenCalled();
+  });
+
+  it("verifies Turnstile and sends email when secret and token are valid", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "test_turnstile_secret";
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true }),
+    }) as jest.Mock;
+
+    const body = {
+      name: "John Doe",
+      email: "john@example.com",
+      serviceInterest: "research",
+      budget: "500-1000",
+      message: "This is a valid message about a project.",
+      website: "",
+      turnstileToken: "valid-mock-token",
+    };
+
+    const res = await POST(createRequest(body, "203.0.113.52"));
+    expect(res.status).toBe(200);
+
+    expect(global.fetch).toHaveBeenCalledWith(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      expect.objectContaining({ method: "POST" }),
+    );
+
+    const { __sendMock } = jest.requireMock("resend");
+    expect(__sendMock).toHaveBeenCalled();
   });
 });
 

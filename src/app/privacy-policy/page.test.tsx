@@ -36,11 +36,11 @@ describe("Privacy Policy page", () => {
     // Controller identity + contact
     expect(screen.getAllByText(/VirtuALL NP/i).length).toBeGreaterThan(0);
     const emailLinks = screen.getAllByRole("link", {
-      name: /office@virtuall-np\.com/i,
+      name: /sales@virtuall-np\.com/i,
     });
     expect(emailLinks.length).toBeGreaterThan(0);
     emailLinks.forEach((a) => {
-      expect(a).toHaveAttribute("href", "mailto:office@virtuall-np.com");
+      expect(a).toHaveAttribute("href", "mailto:sales@virtuall-np.com");
     });
 
     // Data we collect: contact form fields + analytics
@@ -74,6 +74,7 @@ describe("Privacy Policy page", () => {
     expect(screen.getAllByText(/Google Analytics/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Vercel/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Resend/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Cloudflare Turnstile/i).length).toBeGreaterThan(0);
   });
 });
 

@@ -39,6 +39,30 @@ jest.mock("@/components/ui/AnimateIn", () => {
   };
 });
 
+jest.mock("@marsidev/react-turnstile", () => {
+  const React = require("react");
+  const Turnstile = React.forwardRef(
+    (
+      {
+        onSuccess,
+      }: {
+        onSuccess?: (token: string) => void;
+      },
+      ref: React.Ref<{ reset: () => void }>,
+    ) => {
+      React.useImperativeHandle(ref, () => ({
+        reset: () => {},
+      }));
+      React.useEffect(() => {
+        onSuccess?.("jest-turnstile-token");
+      }, [onSuccess]);
+      return <div data-testid="turnstile-stub" />;
+    },
+  );
+  Turnstile.displayName = "Turnstile";
+  return { __esModule: true, Turnstile };
+});
+
 import ContactPage from "./page";
 
 describe("Contact page", () => {
@@ -87,8 +111,8 @@ describe("Contact page", () => {
       screen.getByRole("heading", { level: 2, name: "Contact Information" }),
     ).toBeInTheDocument();
 
-    const emailLink = screen.getByRole("link", { name: /office@virtuall-np\.com/i });
-    expect(emailLink).toHaveAttribute("href", "mailto:office@virtuall-np.com");
+    const emailLink = screen.getByRole("link", { name: /sales@virtuall-np\.com/i });
+    expect(emailLink).toHaveAttribute("href", "mailto:sales@virtuall-np.com");
 
     const phoneLink = screen.getByRole("link", { name: /\+381 63 8 712 091/i });
     expect(phoneLink).toHaveAttribute("href", "tel:+381638712091");

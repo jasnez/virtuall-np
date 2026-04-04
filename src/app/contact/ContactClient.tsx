@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { AnimateIn } from "@/components/ui/AnimateIn";
@@ -15,6 +16,8 @@ import { Button } from "@/components/ui/Button";
 import { Mail, MapPin, Phone } from "lucide-react";
 import siteConfig from "@/content/site-config.json";
 import { PAGE_CONTAINER_X } from "@/lib/page-layout";
+
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 const serviceEnum = z.enum([
   "bespoke-content",
@@ -80,6 +83,8 @@ export default function ContactClient() {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
+  const turnstileRef = React.useRef<TurnstileInstance>(null);
 
   const {
     register,
@@ -108,13 +113,24 @@ export default function ContactClient() {
       return;
     }
 
+    if (turnstileSiteKey && !turnstileToken?.trim()) {
+      setStatus("error");
+      setErrorMessage("Please complete the security check.");
+      return;
+    }
+
     setStatus("loading");
     setErrorMessage(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          ...(turnstileSiteKey && turnstileToken
+            ? { turnstileToken: turnstileToken }
+            : {}),
+        }),
       });
 
       if (!res.ok) {
@@ -134,10 +150,14 @@ export default function ContactClient() {
         }
         setStatus("error");
         setErrorMessage(message);
+        setTurnstileToken(null);
+        turnstileRef.current?.reset();
         return;
       }
 
       setStatus("success");
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
       reset({
         name: "",
         email: "",
@@ -150,6 +170,8 @@ export default function ContactClient() {
     } catch {
       setStatus("error");
       setErrorMessage("Network error. Please try again.");
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     }
   };
 
@@ -267,10 +289,26 @@ export default function ContactClient() {
               </div>
             </div>
 
+            {turnstileSiteKey ? (
+              <div className="mt-4 flex justify-center min-h-[65px]">
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={turnstileSiteKey}
+                  onSuccess={setTurnstileToken}
+                  onExpire={() => setTurnstileToken(null)}
+                  onError={() => setTurnstileToken(null)}
+                />
+              </div>
+            ) : null}
+
             <Button
               type="submit"
               className="w-full justify-center mt-4"
-              disabled={isSubmitting || status === "loading"}
+              disabled={
+                isSubmitting ||
+                status === "loading" ||
+                (Boolean(turnstileSiteKey) && !turnstileToken)
+              }
             >
               {isSubmitting || status === "loading" ? "Sending..." : "Send Message"}
             </Button>
